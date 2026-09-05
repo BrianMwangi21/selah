@@ -110,10 +110,10 @@ PRESETS: dict[str, Preset] = {
             "conversational verse, communal chorus, then a long spontaneous vamp/tag "
             "that builds with choir, ad-libs and rising intensity"
         ),
-        lyric_voice="intimate, honest, conversational; communal call-and-response; vulnerable testimony that turns into corporate praise",
+        lyric_voice="intimate, honest, conversational; communal; vulnerable testimony that turns into corporate praise — favor the process of trusting God over triumphant declaration",
         lyric_themes="God's faithfulness in the waiting, kept promises, His presence in pain, surrender, deep gratitude",
         lyric_imagery="promises, morning coming after night, the wait, 'still' and 'again', mountains and valleys, family and the table",
-        lyric_devices="gentle spontaneous repetition, gang responses, plainspoken-yet-poetic lines, an extended refrain that grows on the vamp",
+        lyric_devices="call-and-response between a lead and the choir (mark lines (Lead)/(Choir)/(All)), gentle spontaneous repetition, plainspoken-yet-poetic lines, an extended vamp/tag that grows with ad-libs and choir hits",
         structure="Verse 1, Chorus, Verse 2, Chorus, Bridge (spontaneous refrain), Vamp/Tag (built with choir)",
     ),
     "bethel": Preset(
@@ -172,8 +172,8 @@ PRESETS: dict[str, Preset] = {
             "intro, verse, pre-chorus, soaring chorus, verse, chorus, an epic bridge "
             "that is the emotional peak, then a final chorus"
         ),
-        lyric_voice="grand, reverent adoration; majestic corporate worship",
-        lyric_themes="the majesty and name of Jesus, the salvation story, awe, surrender, His beauty and worth",
+        lyric_voice="grand, reverent adoration; majestic corporate worship — centered on who God is and what He has done, not on personal testimony",
+        lyric_themes="the majesty and name of Jesus, the salvation story (creation, cross, resurrection, reign), awe, surrender, His beauty and worth",
         lyric_imagery="the beautiful name, oceans, mountains, the King, cross and empty grave, wonder and majesty",
         lyric_devices="singable global hooks, clear memorable lines, a cyclical building bridge, reverent declaration",
         structure="Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Pre-Chorus, Chorus, Bridge (epic peak), Final Chorus",
@@ -204,7 +204,7 @@ PRESETS: dict[str, Preset] = {
         lyric_voice="encouraging, confident, real-life; streetwise-but-saved; first-person testimony you can relate to",
         lyric_themes="overcoming, God as help through the struggle, joy, gratitude, everyday faith, resilience",
         lyric_imagery="shackles and chains breaking, going through it and coming out, morning after the storm, everyday blessings, getting back up",
-        lyric_devices="a catchy repeated hook, groove-friendly phrasing, confident declarations, relatable everyday diction",
+        lyric_devices="a catchy hook-first structure, groove-friendly and rhythmic phrasing, sister-duo trade-offs with ad-lib responses (mark asides in parentheses), confident declarations, relatable everyday diction",
         structure="Intro/Hook, Verse 1, Pre-Chorus, Hook, Verse 2, Hook, Bridge, Hook (out)",
     ),
     "ron-kenoly": Preset(
@@ -234,7 +234,7 @@ PRESETS: dict[str, Preset] = {
         lyric_voice="exuberant corporate praise and thanksgiving; Scripture-quoting; declarative worship",
         lyric_themes="praise and thanksgiving, the sacrifice of praise, lifting the name of the Lord, victory, God's greatness",
         lyric_imagery="lifting hands and lifting the name, gates and courts, the sacrifice of praise, dancing, Ancient of Days, banners",
-        lyric_devices="call-and-response, congregational shout-backs, Scripture allusion, repeated praise declarations",
+        lyric_devices="leader/choir call-and-response (mark lines (Leader)/(Choir)/(Congregation)), congregational shout-backs, direct Scripture quotation (Psalm 100 gates/courts, Isaiah 61 garment of praise, Hebrews 13 'sacrifice of praise'), repeated praise declarations",
         structure="Intro, Verse, Chorus, Verse, Chorus, Bridge (call-and-response), Chorus (reprise)",
     ),
 }
