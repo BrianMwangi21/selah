@@ -224,8 +224,9 @@ def cover(
     slug: str,
     count: int = typer.Option(1, "--count", "-n", min=1, max=4, help="How many options to generate."),
     aspect: str = typer.Option(None, "--aspect", "-a", help="Override aspect ratio (e.g. 1:1, 16:9)."),
+    no_text: bool = typer.Option(False, "--no-text", help="Skip the title/artist overlay."),
 ):
-    """Generate cover art for a saved song with Nano Banana."""
+    """Generate cover art for a saved song (Nano Banana), then stamp the title."""
     from selah import art
     from selah.storage import load
 
@@ -249,6 +250,36 @@ def cover(
         raise typer.Exit(1)
     for out in outs:
         console.print(f"[green]✓ Cover written →[/green] [dim]{out}[/dim]")
+
+    # Auto-stamp the title when there's a single, unambiguous cover.
+    if not no_text and count == 1:
+        titled = art.apply_title(song)
+        console.print(f"[green]✓ Titled cover →[/green] [dim]{titled}[/dim]")
+    elif not no_text:
+        console.print(f"[dim]  pick one, then stamp it:[/dim] selah title {song.slug}")
+
+
+@app.command("title")
+def title(
+    slug: str,
+    title: str = typer.Option(None, "--title", help="Override the song title text."),
+    artist: str = typer.Option(None, "--artist", help="Override the artist wordmark."),
+):
+    """Stamp the title + artist onto an existing cover (free, no API call)."""
+    from selah import art
+    from selah.storage import load
+
+    try:
+        song = load(slug)
+    except FileNotFoundError:
+        console.print(f"[red]No song '{slug}'.[/red] See `selah list`.")
+        raise typer.Exit(1)
+    try:
+        out = art.apply_title(song, title=title, artist=artist)
+    except FileNotFoundError as e:
+        console.print(f"[red]{e}[/red]")
+        raise typer.Exit(1)
+    console.print(f"[green]✓ Titled cover →[/green] [dim]{out}[/dim]")
 
 
 if __name__ == "__main__":

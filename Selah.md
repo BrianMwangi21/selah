@@ -41,8 +41,9 @@ The moat is the musical ear. The AI drafts, the ear approves. Quality gate = hum
 - Auto-generate from the lyric script: title, description, tags, keywords, and the "AI-generated content" declaration for YouTube.
 
 ## 5. Cover art
-- **Nano Banana (Gemini image)** generation from the song's theme (e.g., sun through a church window, a shepherd, an open road). `selah cover <slug>`.
-- One shared album style + a per-song scene, so the 12 tracks look like an album, not a bot. (Imagen was retired Aug 2026 → Nano Banana.)
+- **Nano Banana (Gemini image)** paints a *heavenly, worshipful* scene (divine light, god-rays) from the theme — atmosphere, not literal lyric metaphors. `selah cover <slug>`. (Imagen was retired Aug 2026 → Nano Banana.)
+- One shared album style so the 12 tracks look like an album, not a bot.
+- Song title + **SELAH** wordmark are overlaid with Pillow (`selah title`), not AI-rendered — uniform typography across every cover. Re-runnable for free.
 
 ## 6. Video assembly
 - ffmpeg: cover art + audio → MP4.
@@ -111,7 +112,7 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 - Lyrics generation + the in-the-loop tweak flow — verified (elevation, bethel).
 - Six presets — all heard and tuned; distinct, faithful voices confirmed (call-and-response annotations locked in for maverick-city & ron-kenoly).
 - Lyria music stage — **verified**: a 30s preview renders to a valid 192 kbps / 44.1 kHz stereo MP3.
-- Cover art stage (Nano Banana) — **verified**: renders a 2048×2048 cover from theme + preset imagery (`selah cover`).
+- Cover art stage — **verified**: heavenly 2048×2048 art (Nano Banana) + Pillow title/SELAH overlay (`selah cover`, `selah title`).
 
 **Next:**
 1. Write the twelve.

@@ -26,6 +26,11 @@ IMAGE_MODEL = os.getenv("IMAGE_MODEL", "gemini-3.1-flash-image")
 COVER_ASPECT = os.getenv("COVER_ASPECT", "1:1")   # 1:1 album · 16:9 video
 COVER_SIZE = os.getenv("COVER_SIZE", "2K")
 
+# Title layer (Pillow overlay).
+ARTIST_NAME = os.getenv("ARTIST_NAME", "Selah")
+COVER_TITLE_FONT = os.getenv("COVER_TITLE_FONT", "/usr/share/fonts/noto/NotoSerif-Bold.ttf")
+COVER_ARTIST_FONT = os.getenv("COVER_ARTIST_FONT", "/usr/share/fonts/liberation/LiberationSans-Bold.ttf")
+
 SONGS_DIR = Path(os.getenv("SONGS_DIR", "songs"))
 
 
