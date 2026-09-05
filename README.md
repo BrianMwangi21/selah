@@ -141,7 +141,7 @@ selah/
 - [x] Vibe + theme → lyrics with an in-the-loop tweak flow
 - [x] Six detailed vibe presets (all heard & tuned)
 - [x] Lyria music stage — verified against real 44.1 kHz stereo MP3 output
-- [x] Cover art stage (Nano Banana) — code complete, pending a real-output check
+- [x] Cover art stage (Nano Banana) — verified against real 2048×2048 output
 - [ ] ffmpeg video assembly
 
 *Approval (listening) and YouTube upload are done manually, by choice.*

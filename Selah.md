@@ -111,12 +111,11 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 - Lyrics generation + the in-the-loop tweak flow — verified (elevation, bethel).
 - Six presets — all heard and tuned; distinct, faithful voices confirmed (call-and-response annotations locked in for maverick-city & ron-kenoly).
 - Lyria music stage — **verified**: a 30s preview renders to a valid 192 kbps / 44.1 kHz stereo MP3.
-- Cover art stage (Nano Banana) — code complete (`selah cover`), not yet verified against real output.
+- Cover art stage (Nano Banana) — **verified**: renders a 2048×2048 cover from theme + preset imagery (`selah cover`).
 
 **Next:**
-1. Verify cover-art output (one Nano Banana image).
-2. Write the twelve.
-3. Later: ffmpeg video assembly (then I upload by hand).
+1. Write the twelve.
+2. Later: ffmpeg video assembly (then I upload by hand).
 
 # Link
 

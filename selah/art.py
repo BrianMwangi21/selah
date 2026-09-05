@@ -73,7 +73,21 @@ def render_cover(
             "changed — check selah/art.py against the current docs."
         )
 
+    data = base64.b64decode(image.data)
+    ext = _image_ext(data)
+    stem = "cover" if index is None else f"cover-{index}"
     song.dir.mkdir(parents=True, exist_ok=True)
-    out = song.dir / ("cover.png" if index is None else f"cover-{index}.png")
-    out.write_bytes(base64.b64decode(image.data))
+    out = song.dir / f"{stem}.{ext}"
+    out.write_bytes(data)
     return out
+
+
+def _image_ext(data: bytes) -> str:
+    """Pick the right extension by sniffing the image's magic bytes."""
+    if data[:3] == b"\xff\xd8\xff":
+        return "jpg"
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        return "png"
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return "webp"
+    return "png"  # sensible fallback
