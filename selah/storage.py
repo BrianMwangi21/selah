@@ -56,12 +56,6 @@ class Song:
         return "\n".join(fm) + self.lyrics.rstrip() + "\n"
 
     def save(self) -> Path:
-        # Avoid clobbering a different existing song with the same slug.
-        base = self.slug
-        i = 2
-        while self.dir.exists() and not self.lyrics_path.exists():
-            self.slug = f"{base}-{i}"
-            i += 1
         self.dir.mkdir(parents=True, exist_ok=True)
         self.lyrics_path.write_text(self.to_markdown(), encoding="utf-8")
         return self.lyrics_path
