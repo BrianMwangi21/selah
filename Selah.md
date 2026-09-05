@@ -111,6 +111,7 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 - Rich CLI: `new`, `list`, `show`, `render`, `presets`, `preset <key>`.
 - Lyrics generation + the in-the-loop tweak flow — verified (elevation, bethel).
 - Six presets — all heard and tuned; distinct, faithful voices confirmed (call-and-response annotations locked in for maverick-city & ron-kenoly).
+- Lyrics craft layer — a "write for the arc" super-prompt (hook → verse/chorus contrast → pre-chorus lift → bridge-as-peak → final-chorus payoff) layered on top of each preset's voice.
 - Lyria music stage — **verified**: a 30s preview renders to a valid 192 kbps / 44.1 kHz stereo MP3.
 - Cover art stage — **verified**: heavenly 2048×2048 art (Nano Banana) + Pillow title/SELAH overlay (`selah cover`, `selah title`).
 - Video stage — **verified**: titled cover + audio → 1920×1080 MP4 with a Ken Burns zoom, length pinned to the audio (`selah video`). Pure ffmpeg.
