@@ -12,6 +12,11 @@ from slugify import slugify
 from selah import config
 
 
+def _slug(text: str) -> str:
+    """Slug that drops apostrophes so "Didn't" -> "didnt", not "didn-t"."""
+    return slugify(text.replace("'", "").replace("’", ""))
+
+
 @dataclass
 class Song:
     title: str
@@ -24,7 +29,7 @@ class Song:
 
     def __post_init__(self):
         if not self.slug:
-            self.slug = slugify(self.title) or slugify(self.theme) or "untitled"
+            self.slug = _slug(self.title) or _slug(self.theme) or "untitled"
 
     # --- paths ---
     @property
