@@ -77,7 +77,7 @@ PRESETS: dict[str, Preset] = {
             "sidechained swells, dramatic dynamic range from intimate to explosive"
         ),
         arrangement=(
-            "intimate verse, lifting pre-chorus, enormous chorus, a stripped-back "
+            "intimate verse, enormous chorus, a stripped-back "
             "moment where the drums pull right back, then a spontaneous shout-it "
             "bridge that builds the drums back up, slamming into a final chorus "
             "with the full kit and key-change energy"
@@ -141,14 +141,14 @@ PRESETS: dict[str, Preset] = {
             "cinematic-but-soft, dynamics from a whisper to a warm swell"
         ),
         arrangement=(
-            "sparse intro, tender verse, building pre-chorus, warm chorus, a second "
+            "sparse intro, tender verse, warm chorus, a second "
             "build, a prophetic building bridge, then a resolving final chorus"
         ),
         lyric_voice="personal devotional 'You and me' intimacy with God; tender, awe-filled, first-person",
         lyric_themes="the kindness and goodness of God, rest, being found and pursued, wonder, surrender, overwhelming love",
         lyric_imagery="oceans and deep waters, relentless pursuit, wilderness, morning, kindness, breath, coming home",
         lyric_devices="poetic image-rich lines, quiet repetition, a bridge refrain that builds, tender confession",
-        structure="Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Chorus, Bridge (building), Final Chorus",
+        structure="Intro, Verse 1, Chorus, Verse 2, Chorus, Bridge (building), Final Chorus",
     ),
     "hillsong": Preset(
         key="hillsong",
@@ -172,14 +172,14 @@ PRESETS: dict[str, Preset] = {
             "reverb, professional master"
         ),
         arrangement=(
-            "intro, verse, pre-chorus, soaring chorus, verse, chorus, an epic bridge "
+            "intro, verse, soaring chorus, verse, chorus, an epic bridge "
             "that is the emotional peak, then a final chorus"
         ),
         lyric_voice="grand, reverent adoration; majestic corporate worship — centered on who God is and what He has done, not on personal testimony",
         lyric_themes="the majesty and name of Jesus, the salvation story (creation, cross, resurrection, reign), awe, surrender, His beauty and worth",
         lyric_imagery="the beautiful name, oceans, mountains, the King, cross and empty grave, wonder and majesty",
         lyric_devices="singable global hooks, clear memorable lines, a cyclical building bridge, reverent declaration",
-        structure="Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Pre-Chorus, Chorus, Bridge (epic peak), Final Chorus",
+        structure="Intro, Verse 1, Chorus, Verse 2, Chorus, Bridge (epic peak), Final Chorus",
     ),
     "mary-mary": Preset(
         key="mary-mary",
@@ -202,13 +202,13 @@ PRESETS: dict[str, Preset] = {
             "radio single"
         ),
         arrangement=(
-            "intro hook, verse, pre-chorus, hook, verse, hook, bridge, hook out"
+            "intro hook, verse, hook, verse, hook, bridge, hook out"
         ),
         lyric_voice="encouraging, confident, real-life; streetwise-but-saved; first-person testimony you can relate to",
         lyric_themes="overcoming, God as help through the struggle, joy, gratitude, everyday faith, resilience",
         lyric_imagery="shackles and chains breaking, going through it and coming out, morning after the storm, everyday blessings, getting back up",
         lyric_devices="a catchy hook-first structure, groove-friendly and rhythmic phrasing, sister-duo trade-offs with ad-lib responses (mark asides in parentheses), confident declarations, relatable everyday diction",
-        structure="Intro/Hook, Verse 1, Pre-Chorus, Hook, Verse 2, Hook, Bridge, Hook (out)",
+        structure="Intro/Hook, Verse 1, Hook, Verse 2, Hook, Bridge, Hook (out)",
     ),
     "ron-kenoly": Preset(
         key="ron-kenoly",

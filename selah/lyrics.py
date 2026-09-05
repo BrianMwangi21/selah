@@ -24,9 +24,8 @@ WRITE FOR THE ARC — a great gospel song is a build, not a list of verses:
 - HOOK: the title IS the chorus hook — one undeniable line anyone can repeat \
 after a single listen. Build the whole song to serve it.
 - VERSES: intimate and narrative, lower and more personal; they set up the \
-chorus. Each verse moves the story forward — never restate the same idea.
-- PRE-CHORUS (when the section calls for it): 1–2 lines that raise the tension \
-and launch straight into the chorus.
+chorus and lead straight into it — do NOT write a pre-chorus. Each verse moves \
+the story forward — never restate the same idea.
 - CHORUS: the payoff — bigger, higher, declarative, communal. Repeat the hook. \
 This is the part they will hum for days.
 - BRIDGE: the emotional peak. Strip it back, introduce a NEW melodic and \
@@ -46,8 +45,8 @@ melody locks; put strong words on strong beats; use honest, unforced rhyme.
 spirituality or stacked clichés. Ground every image in real Christian truth.
 
 FORMAT:
-- Use section tags in square brackets exactly like [Verse 1], [Pre-Chorus], \
-[Chorus], [Bridge], [Final Chorus].
+- Use section tags in square brackets exactly like [Verse 1], [Chorus], \
+[Bridge], [Final Chorus].
 - Keep hook lines short and repeatable.
 - Return the lyrics as plain text with the section tags and a blank line \
 between sections."""
