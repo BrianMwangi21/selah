@@ -1,7 +1,5 @@
 # Secrets / env
 .env
-secrets/
-*.json.token
 
 # Generated media (keep lyrics.md, ignore heavy audio/video/art)
 songs/**/*.mp3

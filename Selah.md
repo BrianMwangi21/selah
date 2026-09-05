@@ -9,7 +9,7 @@ tags:
 
 # Summary
 
-A fully programmatic pipeline that writes, produces, packages, and publishes gospel songs to YouTube on autopilot. One channel, 12 strong songs, zero flooding. Each track goes through an approval gate (me) before it ever sees the upload button.
+A programmatic pipeline that writes, produces, and packages gospel songs for YouTube. One channel, 12 strong songs, zero flooding. Each track goes through an approval gate (me) before I upload it — uploads I handle myself.
 
 The moat is the musical ear. The AI drafts, the ear approves. Quality gate = human.
 
@@ -23,7 +23,7 @@ The moat is the musical ear. The AI drafts, the ear approves. Quality gate = hum
 # The Pipeline
 
 ## 1. Lyrics
-- LLM call per track (OpenRouter key already exists, or Gemini API if already in the project).
+- Gemini call per track (one Google house — same project as the music).
 - Prompt per song: a core Christian element (grace, mercy, redemption, the cross, praise, the prodigal, the valley, the harvest...).
 - Output: full lyric sheet + a title + the song's core "vibe directive" for the music model.
 
@@ -34,8 +34,7 @@ The moat is the musical ear. The AI drafts, the ear approves. Quality gate = hum
 - ~~Suno backup~~ dropped. Lyria does vocals; no need to mix-and-mash.
 
 ## 3. Approval gate
-- Generated MP3 lands in Discord (the nanobot already lives there).
-- I listen, give the nod (or reject).
+- I listen to the generated MP3 and give the nod (or reject).
 - Only approved tracks proceed. This is where the ear earns its keep.
 
 ## 4. Meta
@@ -49,14 +48,14 @@ The moat is the musical ear. The AI drafts, the ear approves. Quality gate = hum
 - ffmpeg: cover art + audio → MP4.
 - Slow zoom (Ken Burns) so it's not a static frame — YouTube likes motion.
 
-## 7. Upload
-- YouTube Data API v3 (OAuth) — scheduled publish, one per week or as the playlist fills.
-- Title, description, tags, thumbnail, AI-content checkbox all set programmatically.
+## 7. Upload (manual)
+- I upload approved tracks to YouTube myself, one per week or as the playlist fills.
+- The auto-generated meta (title, description, tags) is there to paste in; thumbnail and the AI-content checkbox I set by hand.
 
 # Account Setup (the one-time part)
 
 - One Google Cloud project. That's it — everything lives there.
-- Enable two things: the Gemini API (for the music) and the YouTube Data API v3 (for upload).
+- Enable the Gemini API (Generative Language API) — lyrics and music both run through it.
 - Billing: Google Cloud is postpaid — card on file, charged monthly after usage. Attach a budget alert at e.g. $5 so it behaves like the prepaid top-ups I already know.
 - Free tier covers a lot — 12 songs a month is easily within it.
 
@@ -65,9 +64,7 @@ The moat is the musical ear. The AI drafts, the ear approves. Quality gate = hum
 - **Gemini API (Lyria)** — song generation (vocals + lyrics)
 - **Gemini (`gemini-3.7-flash`)** — lyrics + meta. OpenRouter dropped; one Google house.
 - Imagen — cover art *(later)*
-- ffmpeg — video assembly (cover + audio, slow zoom) *(later — manual for now)*
-- YouTube Data API v3 — uploads *(later — manual for now)*
-- nanobot — Discord approval loop *(later)*
+- ffmpeg — video assembly (cover + audio, slow zoom) *(later)*
 - **Python CLI** (Typer + Rich) — the studio front-end where the ear works
 
 # Cost
@@ -92,7 +89,7 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 
 1. Decide: Lyria via one Google project, or Suno wrapper for vocals.
 2. Set up the Cloud project + billing alert.
-3. Build the pipeline repo: lyrics → song → Discord approval → cover → ffmpeg → upload.
+3. Build the pipeline repo: lyrics → song → (listen & approve) → cover → ffmpeg → manual upload.
 4. First track in the DMs by tonight.
 
 # Decisions & Build Log
@@ -101,11 +98,11 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 
 **Decisions locked:**
 - **One Google house.** Gemini for lyrics + meta, Lyria for music, Imagen for art. No OpenRouter, no Suno.
-- **CLI-first, human in the loop.** Not full autopilot. Creation is hands-on (vibe → lyrics → tweak *before* spending on audio); only the boring back half (upload) gets automated later.
+- **CLI-first, human in the loop.** Not full autopilot. Creation is hands-on (vibe → lyrics → tweak *before* spending on audio). Cover art + video assembly get automated later; approval and upload stay manual by choice.
 - **Regenerate-with-notes** for tweaking (whole song each pass). Flat files, one folder per song: `songs/<slug>/lyrics.md` with frontmatter.
 - **Flash for lyrics** (cents), Lyria money spent where the ear can hear it (~$1/full song).
 - **Presets over free-text vibe** — six detailed fingerprints: elevation, maverick-city, bethel, hillsong, mary-mary, ron-kenoly. Specific BPM/instrumentation/vocals/imagery, because AIs reward specifics. Temperature knob for experimentation.
-- **Video + YouTube = manual for now.**
+- **Approval + upload = manual, on purpose.** Cover art + video assembly automated later.
 
 **Project:** Google Cloud `selah-507714` · repo `github.com:BrianMwangi21/selah`.
 
@@ -119,9 +116,8 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 1. Burn one 30s Lyria preview clip to confirm the audio path (~$0.18).
 2. Tune the four unheard presets.
 3. Write the twelve.
-4. Later: Imagen cover art → ffmpeg video → (eventually) auto-upload.
+4. Later: Imagen cover art → ffmpeg video (then I upload by hand).
 
 # Link
 
 - [Google AI music generation docs](https://ai.google.dev/gemini-api/docs/music-generation)
-- [YouTube Data API v3](https://developers.google.com/youtube/v3)

@@ -137,5 +137,5 @@ selah/
 - [x] Lyria music stage (code complete)
 - [ ] Verify the Lyria audio path against real output
 - [ ] Cover art (Imagen) + ffmpeg video assembly
-- [ ] Discord approval loop
-- [ ] YouTube upload (currently manual)
+
+*Approval (listening) and YouTube upload are done manually, by choice.*
