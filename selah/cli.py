@@ -96,6 +96,29 @@ def preset_detail(key: str):
     console.print(Panel(lyric, title=f"[bold]{p.name}[/bold] — lyrics (→ Gemini)", border_style=ACCENT, padding=(1, 2)))
 
 
+def _do_auto(song):
+    """Let Lyria write + sing its own lyrics, then save the song. Shared by
+    `new --auto` and `render --auto`."""
+    from selah import music
+
+    try:
+        with console.status("[bold]Lyria is writing & singing the song…[/bold]", spinner="dots"):
+            out, auto_lyrics = music.render_auto(song)
+    except config.ConfigError as e:
+        console.print(f"[red]{e}[/red]")
+        raise typer.Exit(1)
+    except Exception as e:  # surface Lyria API surprises clearly
+        console.print(f"[red]Lyria call failed:[/red] {e}")
+        raise typer.Exit(1)
+
+    song.lyrics = auto_lyrics or "(Lyria returned audio but no lyrics text)"
+    song.status = "rendered"
+    song.save()
+    console.print(f"[green]✓ Song written →[/green] [dim]{out}[/dim]")
+    console.print(_render_lyrics(song.title, song.lyrics, song.preset, song.theme))
+    console.print("[dim]  ↑ Lyria wrote these lyrics itself.[/dim]")
+
+
 @app.command("new")
 def new(
     preset: str = typer.Option(..., "--preset", "-p", help="Vibe preset (see `selah presets`)."),
@@ -104,8 +127,15 @@ def new(
         config.GEMINI_TEMPERATURE, "--temp", min=0.0, max=2.0,
         help="Creativity 0-2. Higher = wilder/more varied for experimentation.",
     ),
+    auto: bool = typer.Option(
+        False, "--auto",
+        help="Skip lyric-writing — let Lyria write AND sing its own lyrics from the theme (renders immediately).",
+    ),
+    title: str = typer.Option(None, "--title", help="Title for an --auto song (defaults to the theme)."),
 ):
-    """Draft lyrics from a vibe + theme, tweak with notes, then save."""
+    """Draft lyrics from a vibe + theme, tweak with notes, then save.
+
+    With --auto, skip all that: Lyria writes and sings its own lyrics in one shot."""
     from selah import lyrics as lyricgen
     from selah.storage import Song
 
@@ -116,6 +146,16 @@ def new(
         raise typer.Exit(1)
 
     _banner()
+
+    if auto:
+        console.print(
+            f"[dim]Auto mode — Lyria writes & sings[/dim] [bold]{pre.name}[/bold] "
+            f"[dim]on[/dim] [bold]{theme}[/bold]\n"
+        )
+        song = Song(title=(title or theme), preset=pre.key, theme=theme, lyrics="")
+        _do_auto(song)
+        return
+
     console.print(
         f"[dim]Writing in the spirit of[/dim] [bold]{pre.name}[/bold] "
         f"[dim]on[/dim] [bold]{theme}[/bold] [dim](temp {temp})[/dim]\n"
@@ -192,7 +232,13 @@ def show(slug: str):
 
 
 @app.command("render")
-def render(slug: str):
+def render(
+    slug: str,
+    auto: bool = typer.Option(
+        False, "--auto",
+        help="Let Lyria write fresh lyrics from the theme (ignores + overwrites saved lyrics).",
+    ),
+):
     """Generate the full song audio for a saved song with Lyria."""
     from selah import music
     from selah.storage import load
@@ -202,6 +248,10 @@ def render(slug: str):
     except FileNotFoundError:
         console.print(f"[red]No song '{slug}'.[/red] See `selah list`.")
         raise typer.Exit(1)
+
+    if auto:
+        _do_auto(song)
+        return
 
     try:
         with console.status("[bold]Lyria is singing the full song…[/bold]", spinner="dots"):

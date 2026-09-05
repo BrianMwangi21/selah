@@ -22,7 +22,8 @@ vibe + theme ─▶ Gemini ─▶ lyric sheet ─▶ (tweak with notes) ─▶ s
 - **Tweak loop** — you regenerate the whole song with notes like *"make the bridge
   more desperate, cut verse 2"* until it's right.
 - **Music** — Lyria (Gemini Interactions API) sings the lyrics into a full
-  ~3-minute song.
+  ~3-minute song. Or `--auto`: Lyria writes its *own* lyrics from the theme and
+  sings them (great for anthemic praise; you trade the tweak loop for speed).
 - **Storage** — every song is a plain `songs/<slug>/lyrics.md` with frontmatter.
   Git-able, eyeball-able.
 
@@ -77,7 +78,11 @@ selah list                    # all songs written so far
 selah show <slug>             # print a song's lyrics
 
 # Make the song (Lyria, ~3 min, costs money — see below)
-selah render <slug>           # full Lyria song
+selah render <slug>           # full Lyria song (sings your lyrics)
+selah render <slug> --auto    # let Lyria (re)write the lyrics too, then sing
+
+# ...or skip lyric-writing entirely — Lyria writes AND sings from a theme:
+selah new -p ron-kenoly -t "God's power and majesty" --auto
 
 # Make cover art (Nano Banana) — heavenly art + stamped title
 selah cover <slug>            # album cover (1:1) + title/SELAH overlay

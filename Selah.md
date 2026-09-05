@@ -31,6 +31,7 @@ The moat is the musical ear. The AI drafts, the ear approves. Quality gate = hum
 - **Lyria via the Gemini Interactions API** — full songs with vocals + custom lyrics (section tags), 44.1kHz stereo. Confirmed it sings your lyrics, not just instrumentals.
 - Model: `lyria-3-pro-preview` — full ~3-min song. Each render is a fresh performance, so there's no separate preview step.
 - The render is nudged to ~3–3.5 min with a dynamic-arc directive (restrained verses → big choruses → building bridge → final-chorus climax).
+- **Auto mode** (`--auto`): skip our lyrics entirely and let Lyria write + sing its own from the theme. Surprisingly strong for anthemic praise/declaration; trades the ear-on-words control for speed. Lyria's lyrics are captured back into `lyrics.md`. Renders retry automatically on Lyria's flaky `prohibited_content`.
 - Same Google Cloud project as everything else — one house, one billing.
 - ~~Suno backup~~ dropped. Lyria does vocals; no need to mix-and-mash.
 
