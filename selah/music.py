@@ -14,15 +14,28 @@ from selah.storage import Song
 from selah.vibes import get_preset
 
 
-def _music_prompt(song: Song) -> str:
+def _music_prompt(song: Song, full: bool = False) -> str:
     try:
         style = get_preset(song.preset).music_prompt() if song.preset else ""
     except KeyError:
         style = ""
     if not style:
         style = "Genre: gospel worship, full arrangement with vocals."
+
+    # For a full render, give Lyria the length + dynamic arc so the build has
+    # room to breathe (the 30s clip ignores this).
+    directive = ""
+    if full:
+        directive = (
+            " Create a complete song approximately 3 to 3.5 minutes long. Build "
+            "the dynamics across the whole song: restrained verses, lifting "
+            "pre-choruses, big anthemic choruses, a stripped-back bridge that "
+            "grows in intensity, and a final chorus that lifts higher than the "
+            "rest with ad-libs and key-change energy."
+        )
+
     return (
-        f"A gospel worship song. {style} "
+        f"A gospel worship song. {style}{directive} "
         f"Theme: {song.theme}. Sing the following lyrics with the section "
         f"structure exactly as tagged.\n\n{song.lyrics}"
     )
@@ -39,7 +52,7 @@ def render(song: Song, preview: bool = True) -> Path:
 
     interaction = client.interactions.create(
         model=model,
-        input=_music_prompt(song),
+        input=_music_prompt(song, full=not preview),
     )
 
     audio = getattr(interaction, "output_audio", None)
