@@ -41,8 +41,8 @@ The moat is the musical ear. The AI drafts, the ear approves. Quality gate = hum
 - Auto-generate from the lyric script: title, description, tags, keywords, and the "AI-generated content" declaration for YouTube.
 
 ## 5. Cover art
-- Image generation from the song's theme (e.g., sun through a church window, a shepherd, an open road).
-- Consistent visual identity across the 12 tracks so it looks like an album, not a bot.
+- **Nano Banana (Gemini image)** generation from the song's theme (e.g., sun through a church window, a shepherd, an open road). `selah cover <slug>`.
+- One shared album style + a per-song scene, so the 12 tracks look like an album, not a bot. (Imagen was retired Aug 2026 → Nano Banana.)
 
 ## 6. Video assembly
 - ffmpeg: cover art + audio → MP4.
@@ -63,7 +63,7 @@ The moat is the musical ear. The AI drafts, the ear approves. Quality gate = hum
 
 - **Gemini API (Lyria)** — song generation (vocals + lyrics)
 - **Gemini (`gemini-3.7-flash`)** — lyrics + meta. OpenRouter dropped; one Google house.
-- Imagen — cover art *(later)*
+- **Nano Banana (Gemini image)** — cover art
 - ffmpeg — video assembly (cover + audio, slow zoom) *(later)*
 - **Python CLI** (Typer + Rich) — the studio front-end where the ear works
 
@@ -97,7 +97,7 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 *Updated 2026-09-05.*
 
 **Decisions locked:**
-- **One Google house.** Gemini for lyrics + meta, Lyria for music, Imagen for art. No OpenRouter, no Suno.
+- **One Google house.** Gemini for lyrics + meta, Lyria for music, Nano Banana (Gemini image) for art. No OpenRouter, no Suno.
 - **CLI-first, human in the loop.** Not full autopilot. Creation is hands-on (vibe → lyrics → tweak *before* spending on audio). Cover art + video assembly get automated later; approval and upload stay manual by choice.
 - **Regenerate-with-notes** for tweaking (whole song each pass). Flat files, one folder per song: `songs/<slug>/lyrics.md` with frontmatter.
 - **Flash for lyrics** (cents), Lyria money spent where the ear can hear it (~$1/full song).
@@ -111,10 +111,12 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 - Lyrics generation + the in-the-loop tweak flow — verified (elevation, bethel).
 - Six presets — all heard and tuned; distinct, faithful voices confirmed (call-and-response annotations locked in for maverick-city & ron-kenoly).
 - Lyria music stage — **verified**: a 30s preview renders to a valid 192 kbps / 44.1 kHz stereo MP3.
+- Cover art stage (Nano Banana) — code complete (`selah cover`), not yet verified against real output.
 
 **Next:**
-1. Write the twelve.
-2. Later: Imagen cover art → ffmpeg video (then I upload by hand).
+1. Verify cover-art output (one Nano Banana image).
+2. Write the twelve.
+3. Later: ffmpeg video assembly (then I upload by hand).
 
 # Link
 

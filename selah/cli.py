@@ -219,5 +219,37 @@ def render(
     console.print(f"[green]✓ {kind.capitalize()} written →[/green] [dim]{out}[/dim]")
 
 
+@app.command("cover")
+def cover(
+    slug: str,
+    count: int = typer.Option(1, "--count", "-n", min=1, max=4, help="How many options to generate."),
+    aspect: str = typer.Option(None, "--aspect", "-a", help="Override aspect ratio (e.g. 1:1, 16:9)."),
+):
+    """Generate cover art for a saved song with Nano Banana."""
+    from selah import art
+    from selah.storage import load
+
+    try:
+        song = load(slug)
+    except FileNotFoundError:
+        console.print(f"[red]No song '{slug}'.[/red] See `selah list`.")
+        raise typer.Exit(1)
+
+    outs = []
+    try:
+        for i in range(count):
+            label = "cover art" if count == 1 else f"cover option {i + 1}/{count}"
+            with console.status(f"[bold]Nano Banana is painting the {label}…[/bold]", spinner="dots"):
+                outs.append(art.render_cover(song, aspect=aspect, index=None if count == 1 else i + 1))
+    except config.ConfigError as e:
+        console.print(f"[red]{e}[/red]")
+        raise typer.Exit(1)
+    except Exception as e:  # surface image API surprises clearly
+        console.print(f"[red]Nano Banana call failed:[/red] {e}")
+        raise typer.Exit(1)
+    for out in outs:
+        console.print(f"[green]✓ Cover written →[/green] [dim]{out}[/dim]")
+
+
 if __name__ == "__main__":
     app()

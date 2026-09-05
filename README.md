@@ -80,6 +80,11 @@ selah show <slug>             # print a song's lyrics
 # Make audio (costs money — see below)
 selah render <slug>           # cheap 30s preview clip
 selah render <slug> --full    # full Lyria song
+
+# Make cover art (Nano Banana)
+selah cover <slug>            # one album cover (1:1)
+selah cover <slug> -n 4       # four options to choose from
+selah cover <slug> -a 16:9    # video-ready aspect
 ```
 
 ---
@@ -121,6 +126,7 @@ selah/
 │   ├── vibes.py     # the presets (music + lyric fingerprints)
 │   ├── lyrics.py    # Gemini draft + regenerate-with-notes
 │   ├── music.py     # Lyria interactions API
+│   ├── art.py       # cover art (Nano Banana)
 │   ├── storage.py   # songs/<slug>/lyrics.md
 │   └── config.py    # env-driven config
 ├── songs/           # generated songs — local only, gitignored
@@ -135,6 +141,7 @@ selah/
 - [x] Vibe + theme → lyrics with an in-the-loop tweak flow
 - [x] Six detailed vibe presets (all heard & tuned)
 - [x] Lyria music stage — verified against real 44.1 kHz stereo MP3 output
-- [ ] Cover art (Imagen) + ffmpeg video assembly
+- [x] Cover art stage (Nano Banana) — code complete, pending a real-output check
+- [ ] ffmpeg video assembly
 
 *Approval (listening) and YouTube upload are done manually, by choice.*

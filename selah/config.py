@@ -21,6 +21,11 @@ GEMINI_TEMPERATURE = float(os.getenv("GEMINI_TEMPERATURE", "1.0"))
 LYRIA_PREVIEW_MODEL = os.getenv("LYRIA_PREVIEW_MODEL", "lyria-3-clip-preview")
 LYRIA_FULL_MODEL = os.getenv("LYRIA_FULL_MODEL", "lyria-3-pro-preview")
 
+# Cover art (Nano Banana / Gemini image generation).
+IMAGE_MODEL = os.getenv("IMAGE_MODEL", "gemini-3.1-flash-image")
+COVER_ASPECT = os.getenv("COVER_ASPECT", "1:1")   # 1:1 album · 16:9 video
+COVER_SIZE = os.getenv("COVER_SIZE", "2K")
+
 SONGS_DIR = Path(os.getenv("SONGS_DIR", "songs"))
 
 
