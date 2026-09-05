@@ -123,7 +123,7 @@ selah/
 │   ├── music.py     # Lyria interactions API
 │   ├── storage.py   # songs/<slug>/lyrics.md
 │   └── config.py    # env-driven config
-├── songs/           # generated songs (lyrics tracked, audio gitignored)
+├── songs/           # generated songs — local only, gitignored
 ├── .env.example
 └── pyproject.toml
 ```

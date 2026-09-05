@@ -1,12 +1,8 @@
 # Secrets / env
 .env
 
-# Generated media (keep lyrics.md, ignore heavy audio/video/art)
-songs/**/*.mp3
-songs/**/*.wav
-songs/**/*.mp4
-songs/**/*.png
-songs/**/*.jpg
+# Songs — all local, nothing (lyrics or media) gets pushed
+songs/
 
 # Python
 __pycache__/

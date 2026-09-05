@@ -110,13 +110,12 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 - Rich CLI: `new`, `list`, `show`, `render`, `presets`, `preset <key>`.
 - Lyrics generation + the in-the-loop tweak flow — verified (elevation, bethel).
 - Six presets, distinct voices confirmed.
-- Lyria music stage — code complete, **not yet verified against real audio**.
+- Lyria music stage — **verified**: a 30s preview renders to a valid 192 kbps / 44.1 kHz stereo MP3.
 
 **Next:**
-1. Burn one 30s Lyria preview clip to confirm the audio path (~$0.18).
-2. Tune the four unheard presets.
-3. Write the twelve.
-4. Later: Imagen cover art → ffmpeg video (then I upload by hand).
+1. Tune the four unheard presets (maverick-city, hillsong, mary-mary, ron-kenoly).
+2. Write the twelve.
+3. Later: Imagen cover art → ffmpeg video (then I upload by hand).
 
 # Link
 
