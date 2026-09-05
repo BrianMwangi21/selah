@@ -21,8 +21,8 @@ vibe + theme ─▶ Gemini ─▶ lyric sheet ─▶ (tweak with notes) ─▶ s
 - **Lyrics** — Gemini writes a full, structured lyric sheet from a preset + theme.
 - **Tweak loop** — you regenerate the whole song with notes like *"make the bridge
   more desperate, cut verse 2"* until it's right.
-- **Music** — Lyria (Gemini Interactions API) sings the lyrics — a cheap 30s
-  preview clip or a full song.
+- **Music** — Lyria (Gemini Interactions API) sings the lyrics into a full
+  ~3-minute song.
 - **Storage** — every song is a plain `songs/<slug>/lyrics.md` with frontmatter.
   Git-able, eyeball-able.
 
@@ -56,8 +56,7 @@ committed.
 | `GEMINI_API_KEY` | API key from AI Studio, in your billed Cloud project |
 | `GEMINI_LYRICS_MODEL` | Text model for lyrics (default `gemini-3.7-flash`) |
 | `GEMINI_TEMPERATURE` | Default creativity 0–2 (default `1.0`) |
-| `LYRIA_PREVIEW_MODEL` | 30s clip model (`lyria-3-clip-preview`) |
-| `LYRIA_FULL_MODEL` | Full-song model (`lyria-3-pro-preview`) |
+| `LYRIA_MODEL` | Full-song model (`lyria-3-pro-preview`) |
 | `SONGS_DIR` | Where songs are written (default `songs/`) |
 
 ---
@@ -77,9 +76,8 @@ selah preset elevation        # full musical + lyrical spec for one
 selah list                    # all songs written so far
 selah show <slug>             # print a song's lyrics
 
-# Make audio (costs money — see below)
-selah render <slug>           # cheap 30s preview clip
-selah render <slug> --full    # full Lyria song
+# Make the song (Lyria, ~3 min, costs money — see below)
+selah render <slug>           # full Lyria song
 
 # Make cover art (Nano Banana) — heavenly art + stamped title
 selah cover <slug>            # album cover (1:1) + title/SELAH overlay
@@ -88,8 +86,7 @@ selah cover <slug> --no-text  # art only, no title
 selah title <slug>            # (re)stamp title + SELAH on the cover (free)
 
 # Make the video (ffmpeg, no spend)
-selah video <slug>            # titled cover + full song -> MP4, Ken Burns zoom
-selah video <slug> --preview  # use the 30s preview clip
+selah video <slug>            # titled cover + song -> MP4, Ken Burns zoom
 selah video <slug> --square   # 1080x1080 instead of 16:9
 ```
 
@@ -118,8 +115,8 @@ ear gets encoded.
 ## Cost
 
 Lyrics are noise — a few cents for the whole project. The money is in audio:
-Lyria runs about **$0.006/sec**, so a 30s preview ≈ **$0.18** and a full ~3-min
-song ≈ **~$1**. Twelve songs, end to end: a few dollars. Set a budget alert.
+Lyria runs about **$0.006/sec**, so a full ~3-min song ≈ **~$1**. Twelve songs,
+end to end: a few dollars. Set a budget alert.
 
 ---
 

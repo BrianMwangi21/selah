@@ -15,14 +15,12 @@ from selah.storage import Song
 
 def render_video(
     song: Song,
-    preview: bool = False,
     square: bool = False,
     fps: int = 25,
     zoom: float = 0.18,
 ) -> Path:
-    """Assemble cover + audio into an MP4 with a gentle Ken Burns zoom.
+    """Assemble cover + song into an MP4 with a gentle Ken Burns zoom.
 
-    preview=True uses preview.mp3 (30s) instead of the full song.mp3.
     square=True renders 1080x1080 (full cover); otherwise 1920x1080 (16:9).
     Returns the path to the written MP4.
     """
@@ -30,12 +28,10 @@ def render_video(
         raise RuntimeError("ffmpeg/ffprobe not found on PATH. Install ffmpeg.")
 
     cover = _find_cover(song)
-    audio = song.dir / ("preview.mp3" if preview else "song.mp3")
+    audio = song.dir / "song.mp3"
     if not audio.exists():
-        want = "preview" if preview else "full song"
-        how = f"selah render {song.slug}" + ("" if preview else " --full")
         raise FileNotFoundError(
-            f"No {want} audio at {audio}. Render it first:  {how}"
+            f"No song audio at {audio}. Render it first:  selah render {song.slug}"
         )
 
     dur = _audio_duration(audio)
@@ -54,7 +50,7 @@ def render_video(
         f"s={W}x{H}:x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'[v]"
     )
 
-    out = song.dir / ("video-preview.mp4" if preview else "video.mp4")
+    out = song.dir / "video.mp4"
     cmd = [
         "ffmpeg", "-y",
         "-loop", "1", "-framerate", str(fps), "-i", str(cover),

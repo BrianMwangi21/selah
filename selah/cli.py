@@ -192,11 +192,8 @@ def show(slug: str):
 
 
 @app.command("render")
-def render(
-    slug: str,
-    full: bool = typer.Option(False, "--full", help="Render the full song instead of a short preview clip."),
-):
-    """Generate audio for a saved song with Lyria."""
+def render(slug: str):
+    """Generate the full song audio for a saved song with Lyria."""
     from selah import music
     from selah.storage import load
 
@@ -206,17 +203,16 @@ def render(
         console.print(f"[red]No song '{slug}'.[/red] See `selah list`.")
         raise typer.Exit(1)
 
-    kind = "full song" if full else "preview clip"
     try:
-        with console.status(f"[bold]Lyria is singing the {kind}…[/bold]", spinner="dots"):
-            out = music.render(song, preview=not full)
+        with console.status("[bold]Lyria is singing the full song…[/bold]", spinner="dots"):
+            out = music.render(song)
     except config.ConfigError as e:
         console.print(f"[red]{e}[/red]")
         raise typer.Exit(1)
     except Exception as e:  # surface Lyria API surprises clearly
         console.print(f"[red]Lyria call failed:[/red] {e}")
         raise typer.Exit(1)
-    console.print(f"[green]✓ {kind.capitalize()} written →[/green] [dim]{out}[/dim]")
+    console.print(f"[green]✓ Song written →[/green] [dim]{out}[/dim]")
 
 
 @app.command("cover")
@@ -262,10 +258,9 @@ def cover(
 @app.command("video")
 def video(
     slug: str,
-    preview: bool = typer.Option(False, "--preview", help="Use the 30s preview clip instead of the full song."),
     square: bool = typer.Option(False, "--square", help="1080x1080 (full cover) instead of 16:9."),
 ):
-    """Assemble the cover + audio into an MP4 with a Ken Burns zoom (ffmpeg)."""
+    """Assemble the cover + song into an MP4 with a Ken Burns zoom (ffmpeg)."""
     from selah import video as videomod
     from selah.storage import load
 
@@ -277,7 +272,7 @@ def video(
 
     try:
         with console.status("[bold]Assembling the video…[/bold]", spinner="dots"):
-            out = videomod.render_video(song, preview=preview, square=square)
+            out = videomod.render_video(song, square=square)
     except (FileNotFoundError, RuntimeError) as e:
         console.print(f"[red]{e}[/red]")
         raise typer.Exit(1)

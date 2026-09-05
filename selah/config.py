@@ -17,9 +17,8 @@ GEMINI_LYRICS_MODEL = os.getenv("GEMINI_LYRICS_MODEL", "gemini-3.7-flash")
 # Overridable per-run with `selah new --temp`.
 GEMINI_TEMPERATURE = float(os.getenv("GEMINI_TEMPERATURE", "1.0"))
 
-# Lyria (music). IDs are env-driven so a rename is a one-line fix, not a code change.
-LYRIA_PREVIEW_MODEL = os.getenv("LYRIA_PREVIEW_MODEL", "lyria-3-clip-preview")
-LYRIA_FULL_MODEL = os.getenv("LYRIA_FULL_MODEL", "lyria-3-pro-preview")
+# Lyria (music). Env-driven so a rename is a one-line fix, not a code change.
+LYRIA_MODEL = os.getenv("LYRIA_MODEL", "lyria-3-pro-preview")
 
 # Cover art (Nano Banana / Gemini image generation).
 IMAGE_MODEL = os.getenv("IMAGE_MODEL", "gemini-3.1-flash-image")

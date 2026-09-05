@@ -1,8 +1,8 @@
 """Music generation via Lyria (Gemini Interactions API).
 
-NOTE: Lyria 3.5 is brand new; the exact call surface may shift. Everything that
-could change is isolated here, and model IDs come from .env — so a rename is a
-one-line config fix, not a code change."""
+Each render is a fresh Lyria performance (non-deterministic), so there is no
+separate 'preview' step — `render` always cuts the full song. Model ID comes
+from .env, so a rename is a one-line config fix, not a code change."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ from selah.storage import Song
 from selah.vibes import get_preset
 
 
-def _music_prompt(song: Song, full: bool = False) -> str:
+def _music_prompt(song: Song) -> str:
     try:
         style = get_preset(song.preset).music_prompt() if song.preset else ""
     except KeyError:
@@ -22,17 +22,14 @@ def _music_prompt(song: Song, full: bool = False) -> str:
     if not style:
         style = "Genre: gospel worship, full arrangement with vocals."
 
-    # For a full render, give Lyria the length + dynamic arc so the build has
-    # room to breathe (the 30s clip ignores this).
-    directive = ""
-    if full:
-        directive = (
-            " Create a complete song approximately 3 to 3.5 minutes long. Build "
-            "the dynamics across the whole song: restrained verses, lifting "
-            "pre-choruses, big anthemic choruses, a stripped-back bridge that "
-            "grows in intensity, and a final chorus that lifts higher than the "
-            "rest with ad-libs and key-change energy."
-        )
+    # Give Lyria the length + dynamic arc so the build has room to breathe.
+    directive = (
+        " Create a complete song approximately 3 to 3.5 minutes long. Build "
+        "the dynamics across the whole song: restrained verses, lifting "
+        "pre-choruses, big anthemic choruses, a stripped-back bridge that "
+        "grows in intensity, and a final chorus that lifts higher than the "
+        "rest with ad-libs and key-change energy."
+    )
 
     return (
         f"A gospel worship song. {style}{directive} "
@@ -41,18 +38,15 @@ def _music_prompt(song: Song, full: bool = False) -> str:
     )
 
 
-def render(song: Song, preview: bool = True) -> Path:
-    """Generate audio for a song and write it into the song folder.
+def render(song: Song) -> Path:
+    """Generate the full song audio and write it into the song folder.
 
-    preview=True -> short cheap clip; preview=False -> full song.
-    Returns the path to the written MP3.
-    """
+    Returns the path to the written MP3."""
     client = config.get_client()
-    model = config.LYRIA_PREVIEW_MODEL if preview else config.LYRIA_FULL_MODEL
 
     interaction = client.interactions.create(
-        model=model,
-        input=_music_prompt(song, full=not preview),
+        model=config.LYRIA_MODEL,
+        input=_music_prompt(song),
     )
 
     audio = getattr(interaction, "output_audio", None)
@@ -63,6 +57,6 @@ def render(song: Song, preview: bool = True) -> Path:
         )
 
     song.dir.mkdir(parents=True, exist_ok=True)
-    out = song.dir / ("preview.mp3" if preview else "song.mp3")
+    out = song.dir / "song.mp3"
     out.write_bytes(base64.b64decode(audio.data))
     return out
