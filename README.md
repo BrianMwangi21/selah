@@ -133,9 +133,8 @@ selah/
 ## Roadmap
 
 - [x] Vibe + theme → lyrics with an in-the-loop tweak flow
-- [x] Six detailed vibe presets
-- [x] Lyria music stage (code complete)
-- [ ] Verify the Lyria audio path against real output
+- [x] Six detailed vibe presets (all heard & tuned)
+- [x] Lyria music stage — verified against real 44.1 kHz stereo MP3 output
 - [ ] Cover art (Imagen) + ffmpeg video assembly
 
 *Approval (listening) and YouTube upload are done manually, by choice.*
