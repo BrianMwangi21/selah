@@ -28,9 +28,10 @@ The moat is the musical ear. The AI drafts, the ear approves. Quality gate = hum
 - Output: full lyric sheet + a title + the song's core "vibe directive" for the music model.
 
 ## 2. Song
-- **Lyria 3.5 Pro** via the Gemini API — full songs up to 3 minutes (verses, chorus, bridge) at 44.1kHz stereo.
-- Same Google Cloud project as the YouTube upload — one house, one billing.
-- Backup route: third-party Suno wrapper (~$0.05–$0.11/song) if vocals need to go next level.
+- **Lyria via the Gemini Interactions API** — full songs with vocals + custom lyrics (section tags), 44.1kHz stereo. Confirmed it sings your lyrics, not just instrumentals.
+- Models: `lyria-3-clip-preview` (cheap 30s preview) → `lyria-3-pro-preview` (full song). Audition a clip before spending on the full render.
+- Same Google Cloud project as everything else — one house, one billing.
+- ~~Suno backup~~ dropped. Lyria does vocals; no need to mix-and-mash.
 
 ## 3. Approval gate
 - Generated MP3 lands in Discord (the nanobot already lives there).
@@ -61,12 +62,13 @@ The moat is the musical ear. The AI drafts, the ear approves. Quality gate = hum
 
 # Tech Stack
 
-- Gemini API (Lyria 3.5 Pro) — song generation
-- LLM (OpenRouter / Gemini) — lyrics + meta
-- Image generation — cover art
-- ffmpeg — video assembly (cover + audio, slow zoom)
-- YouTube Data API v3 — scheduled uploads
-- nanobot — the Discord approval loop (cron → generate → DM → approve/reject)
+- **Gemini API (Lyria)** — song generation (vocals + lyrics)
+- **Gemini (`gemini-3.7-flash`)** — lyrics + meta. OpenRouter dropped; one Google house.
+- Imagen — cover art *(later)*
+- ffmpeg — video assembly (cover + audio, slow zoom) *(later — manual for now)*
+- YouTube Data API v3 — uploads *(later — manual for now)*
+- nanobot — Discord approval loop *(later)*
+- **Python CLI** (Typer + Rich) — the studio front-end where the ear works
 
 # Cost
 
@@ -92,6 +94,32 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 2. Set up the Cloud project + billing alert.
 3. Build the pipeline repo: lyrics → song → Discord approval → cover → ffmpeg → upload.
 4. First track in the DMs by tonight.
+
+# Decisions & Build Log
+
+*Updated 2026-09-05.*
+
+**Decisions locked:**
+- **One Google house.** Gemini for lyrics + meta, Lyria for music, Imagen for art. No OpenRouter, no Suno.
+- **CLI-first, human in the loop.** Not full autopilot. Creation is hands-on (vibe → lyrics → tweak *before* spending on audio); only the boring back half (upload) gets automated later.
+- **Regenerate-with-notes** for tweaking (whole song each pass). Flat files, one folder per song: `songs/<slug>/lyrics.md` with frontmatter.
+- **Flash for lyrics** (cents), Lyria money spent where the ear can hear it (~$1/full song).
+- **Presets over free-text vibe** — six detailed fingerprints: elevation, maverick-city, bethel, hillsong, mary-mary, ron-kenoly. Specific BPM/instrumentation/vocals/imagery, because AIs reward specifics. Temperature knob for experimentation.
+- **Video + YouTube = manual for now.**
+
+**Project:** Google Cloud `selah-507714` · repo `github.com:BrianMwangi21/selah`.
+
+**Built & working:**
+- Rich CLI: `new`, `list`, `show`, `render`, `presets`, `preset <key>`.
+- Lyrics generation + the in-the-loop tweak flow — verified (elevation, bethel).
+- Six presets, distinct voices confirmed.
+- Lyria music stage — code complete, **not yet verified against real audio**.
+
+**Next:**
+1. Burn one 30s Lyria preview clip to confirm the audio path (~$0.18).
+2. Tune the four unheard presets.
+3. Write the twelve.
+4. Later: Imagen cover art → ffmpeg video → (eventually) auto-upload.
 
 # Link
 
