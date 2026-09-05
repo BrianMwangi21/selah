@@ -40,6 +40,8 @@ CRAFT:
 - Contrast is the drama: keep the verses restrained so the chorus feels like a lift.
 - Singability: keep syllable counts consistent across repeated sections so the \
 melody locks; put strong words on strong beats; use honest, unforced rhyme.
+- Structure for the model: prefer balanced, even line groups (4+4, or \
+2+2+2+2) over lopsided sections — symmetry gives the melody somewhere to resolve.
 - Be concrete and fresh: specific images and real emotion over vague \
 spirituality or stacked clichés. Ground every image in real Christian truth.
 

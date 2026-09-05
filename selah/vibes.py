@@ -61,9 +61,11 @@ PRESETS: dict[str, Preset] = {
         bpm="half-time anthem around 70-76 BPM that opens up to a driving 132-138 BPM feel in the final choruses",
         tonality="bright, hopeful major key; verses may sit in the relative minor and resolve up into the chorus; big IV-I lifts",
         instrumentation=(
+            "prominent, driving live drums up front — strong backbeat, powerful "
+            "kick and snare, big climbing tom-fills that build into the choruses; "
             "layered ambient electric guitars with heavy delay and reverb swells, "
-            "warm analog synth pads, grand piano, live drums with driving kick and "
-            "climbing floor-tom fills, deep sub bass, subtle electronic programming"
+            "warm analog synth pads, grand piano, deep sub bass, subtle electronic "
+            "programming"
         ),
         vocals=(
             "confident male worship-leader lead, huge mixed-gender congregational "
@@ -76,8 +78,9 @@ PRESETS: dict[str, Preset] = {
         ),
         arrangement=(
             "intimate verse, lifting pre-chorus, enormous chorus, a stripped-back "
-            "moment, then a spontaneous shout-it bridge repeated and built to a "
-            "final chorus with key-change energy"
+            "moment where the drums pull right back, then a spontaneous shout-it "
+            "bridge that builds the drums back up, slamming into a final chorus "
+            "with the full kit and key-change energy"
         ),
         lyric_voice="first-person testimony blended with corporate 'we'; declarative, present-tense faith stated as fact; urgent and hopeful, never cheesy",
         lyric_themes="victory over the grave, breakthrough, God's faithfulness and promises, freedom from shame, resurrection power",
