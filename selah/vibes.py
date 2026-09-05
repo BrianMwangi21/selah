@@ -86,7 +86,7 @@ PRESETS: dict[str, Preset] = {
         lyric_themes="victory over the grave, breakthrough, God's faithfulness and promises, freedom from shame, resurrection power",
         lyric_imagery="graves into gardens, walls falling, dead things rising, chains breaking, raging rivers, dawn tearing the dark, debt/courtroom cancelled",
         lyric_devices="short shout-able declarative hooks, anaphora ('There is no…'), call-and-response bridge, the name of Jesus landing as the climax",
-        structure="Intro, Verse 1, Chorus, Verse 2, Chorus, Bridge (spontaneous, repeated & built), Final Chorus",
+        structure="Verse 1 (8 lines, tells the story), Chorus (a short 4-line hook), Verse 2 (8 lines), Chorus, Bridge (one simple line, repeated and built), Final Chorus — keep the chorus short (4 lines) and repeat it unchanged after each section",
     ),
     "maverick-city": Preset(
         key="maverick-city",
