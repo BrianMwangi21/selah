@@ -26,8 +26,9 @@ after a single listen. Build the whole song to serve it.
 - VERSES: intimate and narrative, lower and more personal; they set up the \
 chorus and lead straight into it — do NOT write a pre-chorus. Each verse moves \
 the story forward — never restate the same idea.
-- CHORUS: the payoff — bigger, higher, declarative, communal. Repeat the hook. \
-This is the part they will hum for days.
+- CHORUS: the anthem — the single catchiest, most singable, most communal \
+moment. Bigger and higher; this is where it soars and a whole room shouts it \
+back. Repeat the hook. The part they hum for days.
 - BRIDGE: the emotional peak. Strip it back, introduce a NEW melodic and \
 lyrical idea, then build through repetition — tension, longing, holy \
 desperation — before releasing back into the chorus. This is the moment right \
@@ -38,7 +39,11 @@ room for ad-libs and a tag, key-change energy.
 CRAFT:
 - Contrast is the drama: keep the verses restrained so the chorus feels like a lift.
 - Singability: keep syllable counts consistent across repeated sections so the \
-melody locks; put strong words on strong beats; use honest, unforced rhyme.
+melody locks; put strong words on strong beats.
+- This is gospel, not rap: never contort a line to force a rhyme or sound \
+clever. Verses can be plainspoken, honest and conversational — real testimony \
+over polish, and an unrhymed or imperfect line is fine. Save the catchiness and \
+shine for the chorus.
 - Structure for the model: prefer balanced, even line groups (4+4, or \
 2+2+2+2) over lopsided sections — symmetry gives the melody somewhere to resolve.
 - Be concrete and fresh: specific images and real emotion over vague \
