@@ -259,6 +259,31 @@ def cover(
         console.print(f"[dim]  pick one, then stamp it:[/dim] selah title {song.slug}")
 
 
+@app.command("video")
+def video(
+    slug: str,
+    preview: bool = typer.Option(False, "--preview", help="Use the 30s preview clip instead of the full song."),
+    square: bool = typer.Option(False, "--square", help="1080x1080 (full cover) instead of 16:9."),
+):
+    """Assemble the cover + audio into an MP4 with a Ken Burns zoom (ffmpeg)."""
+    from selah import video as videomod
+    from selah.storage import load
+
+    try:
+        song = load(slug)
+    except FileNotFoundError:
+        console.print(f"[red]No song '{slug}'.[/red] See `selah list`.")
+        raise typer.Exit(1)
+
+    try:
+        with console.status("[bold]Assembling the video…[/bold]", spinner="dots"):
+            out = videomod.render_video(song, preview=preview, square=square)
+    except (FileNotFoundError, RuntimeError) as e:
+        console.print(f"[red]{e}[/red]")
+        raise typer.Exit(1)
+    console.print(f"[green]✓ Video written →[/green] [dim]{out}[/dim]")
+
+
 @app.command("title")
 def title(
     slug: str,

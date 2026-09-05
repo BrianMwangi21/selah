@@ -86,6 +86,11 @@ selah cover <slug>            # album cover (1:1) + title/SELAH overlay
 selah cover <slug> -n 4       # four art options to choose from
 selah cover <slug> --no-text  # art only, no title
 selah title <slug>            # (re)stamp title + SELAH on the cover (free)
+
+# Make the video (ffmpeg, no spend)
+selah video <slug>            # titled cover + full song -> MP4, Ken Burns zoom
+selah video <slug> --preview  # use the 30s preview clip
+selah video <slug> --square   # 1080x1080 instead of 16:9
 ```
 
 ---
@@ -128,6 +133,7 @@ selah/
 │   ├── lyrics.py    # Gemini draft + regenerate-with-notes
 │   ├── music.py     # Lyria interactions API
 │   ├── art.py       # cover art (Nano Banana) + Pillow title overlay
+│   ├── video.py     # ffmpeg video assembly (Ken Burns zoom)
 │   ├── storage.py   # songs/<slug>/lyrics.md
 │   └── config.py    # env-driven config
 ├── songs/           # generated songs — local only, gitignored
@@ -143,6 +149,6 @@ selah/
 - [x] Six detailed vibe presets (all heard & tuned)
 - [x] Lyria music stage — verified against real 44.1 kHz stereo MP3 output
 - [x] Cover art stage — heavenly Nano Banana art + Pillow title/SELAH overlay (verified, 2048×2048)
-- [ ] ffmpeg video assembly
+- [x] ffmpeg video assembly — titled cover + audio → MP4 with a Ken Burns zoom (verified)
 
 *Approval (listening) and YouTube upload are done manually, by choice.*

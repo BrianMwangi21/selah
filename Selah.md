@@ -46,8 +46,8 @@ The moat is the musical ear. The AI drafts, the ear approves. Quality gate = hum
 - Song title + **SELAH** wordmark are overlaid with Pillow (`selah title`), not AI-rendered — uniform typography across every cover. Re-runnable for free.
 
 ## 6. Video assembly
-- ffmpeg: cover art + audio → MP4.
-- Slow zoom (Ken Burns) so it's not a static frame — YouTube likes motion.
+- ffmpeg: titled cover + audio → MP4. `selah video <slug>` (or `--square`).
+- Slow zoom (Ken Burns) so it's not a static frame — YouTube likes motion. Pure ffmpeg, no spend.
 
 ## 7. Upload (manual)
 - I upload approved tracks to YouTube myself, one per week or as the playlist fills.
@@ -65,7 +65,7 @@ The moat is the musical ear. The AI drafts, the ear approves. Quality gate = hum
 - **Gemini API (Lyria)** — song generation (vocals + lyrics)
 - **Gemini (`gemini-3.7-flash`)** — lyrics + meta. OpenRouter dropped; one Google house.
 - **Nano Banana (Gemini image)** — cover art
-- ffmpeg — video assembly (cover + audio, slow zoom) *(later)*
+- **ffmpeg** — video assembly (titled cover + audio, Ken Burns zoom)
 - **Python CLI** (Typer + Rich) — the studio front-end where the ear works
 
 # Cost
@@ -113,10 +113,12 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 - Six presets — all heard and tuned; distinct, faithful voices confirmed (call-and-response annotations locked in for maverick-city & ron-kenoly).
 - Lyria music stage — **verified**: a 30s preview renders to a valid 192 kbps / 44.1 kHz stereo MP3.
 - Cover art stage — **verified**: heavenly 2048×2048 art (Nano Banana) + Pillow title/SELAH overlay (`selah cover`, `selah title`).
+- Video stage — **verified**: titled cover + audio → 1920×1080 MP4 with a Ken Burns zoom, length pinned to the audio (`selah video`). Pure ffmpeg.
 
 **Next:**
-1. Write the twelve.
-2. Later: ffmpeg video assembly (then I upload by hand).
+1. Write the twelve, then upload the winners by hand.
+
+The full creation pipeline — lyrics → song → cover → video — is built and verified end to end.
 
 # Link
 
