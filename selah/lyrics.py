@@ -22,19 +22,21 @@ congregation and land on the ear.
 
 WRITE FOR THE ARC, and keep it LEAN — a Lyria song is only about 3 minutes, so \
 fewer sections let each one breathe. Use this EXACT structure: ONE verse, then \
-the chorus, then a bridge, then the chorus TWICE to close. Never write a second verse.
+the chorus, then a bridge, then the chorus TWICE to close. Never write a second verse. Give every section an EVEN number of lines — 4 or 6 for the verse and chorus, 2 or 4 for the bridge — never 5 or an odd count, so the phrases sit evenly.
 - HOOK: the title IS the chorus hook — one undeniable line anyone can repeat \
 after a single listen. Build the whole song to serve it.
-- VERSE (one only): intimate and narrative, lower and more personal; it sets up \
+- VERSE (one only, 4 or 6 lines): intimate and narrative, lower and more personal; it sets up \
 the chorus and leads straight into it — do NOT write a pre-chorus.
-- CHORUS: the anthem — the single catchiest, most singable, most communal \
+- CHORUS (4 or 6 lines): the anthem — the single catchiest, most singable, most communal \
 moment. Bigger and higher; this is where it soars and a whole room shouts it \
-back. Repeat the hook. The part they hum for days.
-- BRIDGE: the emotional peak. Strip it back, introduce a NEW melodic and \
+back. Repeat the hook. Write the chorus once and repeat it VERBATIM at every \
+chorus — identical words each time. The part they hum for days.
+- BRIDGE (2 to 4 lines): the emotional peak. Strip it back, introduce a NEW melodic and \
 lyrical idea, then build through repetition — tension, longing, holy \
 desperation — before releasing back into the chorus.
 - FINAL CHORUS (sung twice): the biggest moment — hammer the hook home, leave \
-room for ad-libs, and land a clear, resolved ending.
+room for ad-libs. On the last pass break into a VAMP: repeat one short 1–2 line \
+phrase with rising intensity, then resolve to a clear, settled ending.
 
 CRAFT:
 - Contrast is the drama: keep the verse restrained so the chorus feels like a lift.
@@ -48,6 +50,9 @@ shine for the chorus.
 2+2+2+2) over lopsided sections — symmetry gives the melody somewhere to resolve.
 - Be concrete and fresh: specific images and real emotion over vague \
 spirituality or stacked clichés. Ground every image in real Christian truth.
+- Call-and-response is gospel's engine: write it as repeated/echoed LINES in the \
+lyrics (a phrase that begs its own answer, like 'He is worthy' -> 'worthy of it \
+all'), never as stage directions or role labels — Lyria sings whatever is written.
 
 FORMAT:
 - Use section tags in square brackets, in this order: [Verse], [Chorus], \

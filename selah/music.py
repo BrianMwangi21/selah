@@ -23,8 +23,11 @@ from selah.vibes import get_preset
 _FULL_DIRECTIVE = (
     " Create a complete song about 3 minutes long with a lean structure so it can "
     "breathe: one verse, then the chorus, then a bridge, then the chorus twice to "
-    "close. Build the dynamics — a restrained verse, a big anthemic chorus, a "
-    "bridge that grows in intensity, and a soaring final double chorus — and land "
+    "close (no second verse). Give each section an EVEN number of lines — 4 or 6 "
+    "for the verse and chorus, 2 or 4 for the bridge, never 5 or an odd count. "
+    "Repeat the chorus verbatim every time. Build the dynamics — a restrained "
+    "verse, a big anthemic chorus, a bridge that grows — and on the final chorus "
+    "break into a vamp (repeat one short phrase with rising intensity), then land "
     "a clear, resolved ending (do not cut off abruptly)."
 )
 
