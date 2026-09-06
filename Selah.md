@@ -107,6 +107,7 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 - **Presets over free-text vibe** — six detailed fingerprints: elevation, maverick-city, bethel, hillsong, mary-mary, ron-kenoly. Specific BPM/instrumentation/vocals/imagery, because AIs reward specifics. Temperature knob for experimentation.
 - **Approval + upload = manual, on purpose.** Cover art + video assembly automated later.
 - **No preview step.** Lyria is non-deterministic (a fresh performance each run), so a 30s clip doesn't predict the full song — one render, always the full song.
+- **Lean structure: one Verse → Chorus → Bridge → Chorus → Chorus.** Lyria maxes ~3 min, so cramming 2 verses rushed everything; fewer sections let each one breathe. Baked into the craft prompt, every preset, and the Lyria directive (which also drops "key-change energy" — it leaked into auto lyrics — and asks for a resolved ending).
 
 **Project:** Google Cloud `selah-507714` · repo `github.com:BrianMwangi21/selah`.
 

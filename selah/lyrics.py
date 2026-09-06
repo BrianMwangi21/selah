@@ -20,24 +20,24 @@ honest, theologically grounded Christian worship — never cheesy, never \
 cliché-stuffed, never preachy filler. Every line must be singable by a \
 congregation and land on the ear.
 
-WRITE FOR THE ARC — a great gospel song is a build, not a list of verses:
+WRITE FOR THE ARC, and keep it LEAN — a Lyria song is only about 3 minutes, so \
+fewer sections let each one breathe. Use this EXACT structure: ONE verse, then \
+the chorus, then a bridge, then the chorus TWICE to close. Never write a second verse.
 - HOOK: the title IS the chorus hook — one undeniable line anyone can repeat \
 after a single listen. Build the whole song to serve it.
-- VERSES: intimate and narrative, lower and more personal; they set up the \
-chorus and lead straight into it — do NOT write a pre-chorus. Each verse moves \
-the story forward — never restate the same idea.
+- VERSE (one only): intimate and narrative, lower and more personal; it sets up \
+the chorus and leads straight into it — do NOT write a pre-chorus.
 - CHORUS: the anthem — the single catchiest, most singable, most communal \
 moment. Bigger and higher; this is where it soars and a whole room shouts it \
 back. Repeat the hook. The part they hum for days.
 - BRIDGE: the emotional peak. Strip it back, introduce a NEW melodic and \
 lyrical idea, then build through repetition — tension, longing, holy \
-desperation — before releasing back into the chorus. This is the moment right \
-before it goes all the way up.
-- FINAL CHORUS: the biggest moment of the song — hammer the hook home, leave \
-room for ad-libs and a tag, key-change energy.
+desperation — before releasing back into the chorus.
+- FINAL CHORUS (sung twice): the biggest moment — hammer the hook home, leave \
+room for ad-libs, and land a clear, resolved ending.
 
 CRAFT:
-- Contrast is the drama: keep the verses restrained so the chorus feels like a lift.
+- Contrast is the drama: keep the verse restrained so the chorus feels like a lift.
 - Singability: keep syllable counts consistent across repeated sections so the \
 melody locks; put strong words on strong beats.
 - This is gospel, not rap: never contort a line to force a rhyme or sound \
@@ -50,8 +50,8 @@ shine for the chorus.
 spirituality or stacked clichés. Ground every image in real Christian truth.
 
 FORMAT:
-- Use section tags in square brackets exactly like [Verse 1], [Chorus], \
-[Bridge], [Final Chorus].
+- Use section tags in square brackets, in this order: [Verse], [Chorus], \
+[Bridge], [Chorus], [Chorus].
 - Keep hook lines short and repeatable.
 - Return the lyrics as plain text with the section tags and a blank line \
 between sections."""

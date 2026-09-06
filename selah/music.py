@@ -21,10 +21,11 @@ from selah.vibes import get_preset
 
 # Length + dynamic-arc directive so the build has room to breathe.
 _FULL_DIRECTIVE = (
-    " Create a complete song approximately 3 to 3.5 minutes long. Build the "
-    "dynamics across the whole song: restrained verses, big anthemic choruses, a "
-    "stripped-back bridge that grows in intensity, and a final chorus that lifts "
-    "higher than the rest with ad-libs and key-change energy."
+    " Create a complete song about 3 minutes long with a lean structure so it can "
+    "breathe: one verse, then the chorus, then a bridge, then the chorus twice to "
+    "close. Build the dynamics — a restrained verse, a big anthemic chorus, a "
+    "bridge that grows in intensity, and a soaring final double chorus — and land "
+    "a clear, resolved ending (do not cut off abruptly)."
 )
 
 

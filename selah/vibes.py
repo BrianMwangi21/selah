@@ -80,13 +80,13 @@ PRESETS: dict[str, Preset] = {
             "intimate verse, enormous chorus, a stripped-back "
             "moment where the drums pull right back, then a spontaneous shout-it "
             "bridge that builds the drums back up, slamming into a final chorus "
-            "with the full kit and key-change energy"
+            "with the full kit"
         ),
         lyric_voice="first-person testimony blended with corporate 'we'; declarative, present-tense faith stated as fact; urgent and hopeful, never cheesy",
         lyric_themes="victory over the grave, breakthrough, God's faithfulness and promises, freedom from shame, resurrection power",
         lyric_imagery="graves into gardens, walls falling, dead things rising, chains breaking, raging rivers, dawn tearing the dark, debt/courtroom cancelled",
         lyric_devices="short shout-able declarative hooks, anaphora ('There is no…'), call-and-response bridge, the name of Jesus landing as the climax",
-        structure="Verse 1 (8 lines, tells the story), Chorus (a short 4-line hook), Verse 2 (8 lines), Chorus, Bridge (one simple line, repeated and built), Final Chorus — keep the chorus short (4 lines) and repeat it unchanged after each section",
+        structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
     ),
     "maverick-city": Preset(
         key="maverick-city",
@@ -117,7 +117,7 @@ PRESETS: dict[str, Preset] = {
         lyric_themes="God's faithfulness in the waiting, kept promises, His presence in pain, surrender, deep gratitude",
         lyric_imagery="promises, morning coming after night, the wait, 'still' and 'again', mountains and valleys, family and the table",
         lyric_devices="call-and-response between a lead and the choir (mark lines (Lead)/(Choir)/(All)), gentle spontaneous repetition, plainspoken-yet-poetic lines, an extended vamp/tag that grows with ad-libs and choir hits",
-        structure="Verse 1, Chorus, Verse 2, Chorus, Bridge (spontaneous refrain), Vamp/Tag (built with choir)",
+        structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
     ),
     "bethel": Preset(
         key="bethel",
@@ -148,7 +148,7 @@ PRESETS: dict[str, Preset] = {
         lyric_themes="the kindness and goodness of God, rest, being found and pursued, wonder, surrender, overwhelming love",
         lyric_imagery="oceans and deep waters, relentless pursuit, wilderness, morning, kindness, breath, coming home",
         lyric_devices="poetic image-rich lines, quiet repetition, a bridge refrain that builds, tender confession",
-        structure="Intro, Verse 1, Chorus, Verse 2, Chorus, Bridge (building), Final Chorus",
+        structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
     ),
     "hillsong": Preset(
         key="hillsong",
@@ -179,7 +179,7 @@ PRESETS: dict[str, Preset] = {
         lyric_themes="the majesty and name of Jesus, the salvation story (creation, cross, resurrection, reign), awe, surrender, His beauty and worth",
         lyric_imagery="the beautiful name, oceans, mountains, the King, cross and empty grave, wonder and majesty",
         lyric_devices="singable global hooks, clear memorable lines, a cyclical building bridge, reverent declaration",
-        structure="Intro, Verse 1, Chorus, Verse 2, Chorus, Bridge (epic peak), Final Chorus",
+        structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
     ),
     "mary-mary": Preset(
         key="mary-mary",
@@ -208,7 +208,7 @@ PRESETS: dict[str, Preset] = {
         lyric_themes="overcoming, God as help through the struggle, joy, gratitude, everyday faith, resilience",
         lyric_imagery="shackles and chains breaking, going through it and coming out, morning after the storm, everyday blessings, getting back up",
         lyric_devices="a catchy hook-first structure, groove-friendly and rhythmic phrasing, sister-duo trade-offs with ad-lib responses (mark asides in parentheses), confident declarations, relatable everyday diction",
-        structure="Intro/Hook, Verse 1, Hook, Verse 2, Hook, Bridge, Hook (out)",
+        structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
     ),
     "ron-kenoly": Preset(
         key="ron-kenoly",
@@ -238,7 +238,7 @@ PRESETS: dict[str, Preset] = {
         lyric_themes="praise and thanksgiving, the sacrifice of praise, lifting the name of the Lord, victory, God's greatness",
         lyric_imagery="lifting hands and lifting the name, gates and courts, the sacrifice of praise, dancing, Ancient of Days, banners",
         lyric_devices="leader/choir call-and-response (mark lines (Leader)/(Choir)/(Congregation)), congregational shout-backs, direct Scripture quotation (Psalm 100 gates/courts, Isaiah 61 garment of praise, Hebrews 13 'sacrifice of praise'), repeated praise declarations",
-        structure="Intro, Verse, Chorus, Verse, Chorus, Bridge (call-and-response), Chorus (reprise)",
+        structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
     ),
 }
 
