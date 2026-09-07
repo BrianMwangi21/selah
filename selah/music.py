@@ -48,11 +48,19 @@ def _music_prompt(song: Song) -> str:
     )
 
 
+_CREATIVE_DIRECTIVE = (
+    " Treat the theme as a spark, not a script — do NOT paraphrase or restate it "
+    "line by line. Write like a real songwriter: find your own fresh, concrete "
+    "images, an unexpected angle, a specific moment or story that makes the "
+    "feeling land. Surprise the listener. Avoid the obvious, on-the-nose phrasing."
+)
+
+
 def _auto_prompt(song: Song) -> str:
     return (
         f"A gospel worship song. {_style(song)} Write your own lyrics (do not "
-        f"wait for lyrics to be provided): a song about {song.theme}."
-        f"{_FULL_DIRECTIVE}"
+        f"wait for lyrics to be provided): a song inspired by {song.theme}."
+        f"{_CREATIVE_DIRECTIVE}{_FULL_DIRECTIVE}"
     )
 
 
