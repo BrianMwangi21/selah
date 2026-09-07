@@ -28,7 +28,9 @@ _FULL_DIRECTIVE = (
     "Repeat the chorus verbatim every time. Build the dynamics — a restrained "
     "verse, a big anthemic chorus, a bridge that grows — and on the final chorus "
     "break into a vamp (repeat one short phrase with rising intensity), then land "
-    "a clear, resolved ending (do not cut off abruptly)."
+    "a clear, resolved ending (do not cut off abruptly). Keep every line short and "
+    "easy to sing — few words per line, a comfortable, even syllable count; never "
+    "cram a line so full it becomes a mouthful, especially in the verses."
 )
 
 
