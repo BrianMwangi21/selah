@@ -181,35 +181,6 @@ PRESETS: dict[str, Preset] = {
         lyric_devices="singable global hooks, clear memorable lines, a cyclical building bridge, reverent declaration",
         structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
     ),
-    "mary-mary": Preset(
-        key="mary-mary",
-        name="Mary Mary",
-        feel="Urban contemporary gospel · 90-110 BPM R&B groove",
-        genre="urban contemporary gospel, R&B and hip-hop-influenced gospel",
-        bpm="groove-driven 90-110 BPM with hand-clap energy and a contemporary beat",
-        tonality="soulful R&B harmony, contemporary chord changes, a funky gospel blend",
-        instrumentation=(
-            "tight programmed and live drums, groovy electric bass, gospel keys and "
-            "Hammond organ, funky electric-guitar licks, punchy horn stabs, hand "
-            "claps, hip-hop-influenced production"
-        ),
-        vocals=(
-            "female sister-duo leads with tight harmonies, soulful runs, confident "
-            "sassy ad-libs, layered gospel background stacks, radio-ready"
-        ),
-        production=(
-            "modern urban-gospel mix, clean and punchy, groove-forward, polished "
-            "radio single"
-        ),
-        arrangement=(
-            "intro hook, verse, hook, verse, hook, bridge, hook out"
-        ),
-        lyric_voice="encouraging, confident, real-life; streetwise-but-saved; first-person testimony you can relate to",
-        lyric_themes="overcoming, God as help through the struggle, joy, gratitude, everyday faith, resilience",
-        lyric_imagery="shackles and chains breaking, going through it and coming out, morning after the storm, everyday blessings, getting back up",
-        lyric_devices="a catchy hook-first structure, groove-friendly and rhythmic phrasing, sister-duo trade-offs with ad-lib responses (mark asides in parentheses), confident declarations, relatable everyday diction",
-        structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
-    ),
     "ron-kenoly": Preset(
         key="ron-kenoly",
         name="Ron Kenoly",
