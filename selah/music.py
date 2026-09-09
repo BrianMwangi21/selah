@@ -59,8 +59,11 @@ _CREATIVE_DIRECTIVE = (
 
 
 def _auto_prompt(song: Song) -> str:
+    # No preset -> drop the style block entirely and let Lyria pick the sound
+    # from the theme alone (a proven mode — some of the strongest tracks).
+    style = f"{_style(song)} " if song.preset else ""
     return (
-        f"A gospel worship song. {_style(song)} Write your own lyrics (do not "
+        f"A gospel worship song. {style}Write your own lyrics (do not "
         f"wait for lyrics to be provided): a song inspired by {song.theme}."
         f"{_CREATIVE_DIRECTIVE}{_FULL_DIRECTIVE}"
     )

@@ -121,7 +121,7 @@ def _do_auto(song):
 
 @app.command("new")
 def new(
-    preset: str = typer.Option(..., "--preset", "-p", help="Vibe preset (see `selah presets`)."),
+    preset: str = typer.Option(None, "--preset", "-p", help="Vibe preset (see `selah presets`)."),
     theme: str = typer.Option(..., "--theme", "-t", help="Core element, e.g. 'grace', 'the prodigal'."),
     temp: float = typer.Option(
         config.GEMINI_TEMPERATURE, "--temp", min=0.0, max=2.0,
@@ -131,28 +131,44 @@ def new(
         False, "--auto",
         help="Skip lyric-writing — let Lyria write AND sing its own lyrics from the theme (renders immediately).",
     ),
+    no_preset: bool = typer.Option(
+        False, "--no-preset",
+        help="Auto only: no preset styling — Lyria writes AND picks the sound from the theme alone.",
+    ),
     title: str = typer.Option(None, "--title", help="Title for an --auto song (defaults to the theme)."),
 ):
     """Draft lyrics from a vibe + theme, tweak with notes, then save.
 
-    With --auto, skip all that: Lyria writes and sings its own lyrics in one shot."""
+    With --auto, skip all that: Lyria writes and sings its own lyrics in one shot.
+    Add --no-preset (auto only) to hand Lyria just the theme, no style — it picks
+    the sound itself (a proven mode for some of the strongest tracks)."""
     from selah import lyrics as lyricgen
     from selah.storage import Song
 
-    try:
-        pre = get_preset(preset)
-    except KeyError:
-        console.print(f"[red]Unknown preset '{preset}'.[/red] Try: {', '.join(PRESETS)}")
-        raise typer.Exit(1)
+    if no_preset:
+        if not auto:
+            console.print("[red]--no-preset only works with --auto[/red] (the lyric-craft flow needs a preset's brief).")
+            raise typer.Exit(1)
+        pre = None
+    else:
+        if not preset:
+            console.print("[red]Provide a --preset[/red] (see `selah presets`), or use [bold]--no-preset[/bold] with --auto.")
+            raise typer.Exit(1)
+        try:
+            pre = get_preset(preset)
+        except KeyError:
+            console.print(f"[red]Unknown preset '{preset}'.[/red] Try: {', '.join(PRESETS)}")
+            raise typer.Exit(1)
 
     _banner()
 
     if auto:
+        voice = pre.name if pre else "no preset — its own sound"
         console.print(
-            f"[dim]Auto mode — Lyria writes & sings[/dim] [bold]{pre.name}[/bold] "
+            f"[dim]Auto mode — Lyria writes & sings[/dim] [bold]{voice}[/bold] "
             f"[dim]on[/dim] [bold]{theme}[/bold]\n"
         )
-        song = Song(title=(title or theme), preset=pre.key, theme=theme, lyrics="")
+        song = Song(title=(title or theme), preset=(pre.key if pre else ""), theme=theme, lyrics="")
         _do_auto(song)
         return
 
