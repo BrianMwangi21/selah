@@ -329,6 +329,53 @@ def video(
     console.print(f"[green]✓ Video written →[/green] [dim]{out}[/dim]")
 
 
+@app.command("retitle")
+def retitle(
+    slug: str,
+    new_title: str = typer.Argument(..., help="New title — use a real hook line from the lyrics."),
+):
+    """Rename a song's title + folder to match the actual lyric hook.
+
+    In --auto we guess a title before Lyria writes a word, so it drifts from the
+    real hook. This renames the folder + frontmatter, then re-stamps the cover
+    and rebuilds the video if they already exist — so the folder, the title on
+    the cover, and the words people actually sing all line up."""
+    import shutil as _sh
+
+    from selah import art
+    from selah import video as videomod
+    from selah.storage import _slug, load
+
+    try:
+        song = load(slug)
+    except FileNotFoundError:
+        console.print(f"[red]No song '{slug}'.[/red] See `selah list`.")
+        raise typer.Exit(1)
+
+    old_dir = song.dir
+    new_slug = _slug(new_title)
+    song.title = new_title
+    song.slug = new_slug
+    new_dir = song.dir  # reflects the new slug
+
+    if new_slug != slug:
+        if new_dir.exists():
+            console.print(f"[red]A folder for '{new_slug}' already exists.[/red] Pick another title.")
+            raise typer.Exit(1)
+        _sh.move(str(old_dir), str(new_dir))
+    song.save()
+    console.print(f"[green]✓ Retitled →[/green] [bold]{new_title}[/bold] [dim]({new_slug})[/dim]")
+
+    has_cover = any((new_dir / n).exists() for n in ("cover.jpg", "cover.jpeg", "cover.png", "cover.webp"))
+    if has_cover:
+        titled = art.apply_title(song)
+        console.print(f"[green]✓ Cover re-stamped →[/green] [dim]{titled}[/dim]")
+        if (new_dir / "song.mp3").exists():
+            with console.status("[bold]Rebuilding the video…[/bold]", spinner="dots"):
+                out = videomod.render_video(song)
+            console.print(f"[green]✓ Video rebuilt →[/green] [dim]{out}[/dim]")
+
+
 @app.command("title")
 def title(
     slug: str,
