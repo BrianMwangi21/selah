@@ -22,23 +22,29 @@ from selah import config
 from selah.storage import Song
 from selah.vibes import get_preset
 
-# The shared visual identity — heavenly and worshipful, NOT literal lyric
-# metaphors (those made a "broken wall"). Tweak to restyle every cover at once.
+# The shared visual identity — heavenly and worshipful, now with real subject
+# matter (worshippers, praying figures, a sense of place), not just empty sky.
+# Two hard constraints stay: a calm centre for the title, and no rendered text.
 ALBUM_STYLE = (
-    "Heavenly, worshipful gospel album cover art. Luminous divine light, soft "
-    "golden god-rays breaking through clouds, radiant glow, ethereal and "
-    "atmospheric, sacred and uplifting, a sense of glory, awe and transcendence. "
-    "Cinematic painterly digital art, rich warm light, high detail. Keep the "
-    "central area calm and softly lit, with open space for a title. "
+    "Cinematic, richly detailed gospel album cover art — heavenly and worshipful, "
+    "with real subject matter and story, not just empty sky. Where it fits, "
+    "include evocative human figures: a lone worshipper or a small gathering, "
+    "hands raised or kneeling in prayer, silhouettes bathed in divine light, a "
+    "real sense of place and atmosphere. Luminous divine light, golden god-rays "
+    "breaking through clouds, radiant glow, sacred and uplifting, a sense of "
+    "glory, awe and transcendence. Painterly cinematic digital art, rich warm "
+    "light, deep detail and texture. Compose so figures and busier detail sit "
+    "toward the lower and outer areas, while the central sky stays luminous and "
+    "relatively calm, leaving open space for a title. "
     "No text, no words, no lettering, no logos, no watermark."
 )
 
 
 def _cover_prompt(song: Song) -> str:
-    # Evoke the theme as *atmosphere*, not literal objects.
+    # Evoke the theme through a scene — figures, place, light and atmosphere.
     return (
-        f"{ALBUM_STYLE} Evoke the feeling of '{song.theme}' through light, sky, "
-        f"colour and atmosphere rather than literal objects."
+        f"{ALBUM_STYLE} Evoke the feeling of '{song.theme}' through a worshipful "
+        f"scene — figures, place, light, sky and colour."
     )
 
 
