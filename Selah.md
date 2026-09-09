@@ -97,33 +97,43 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 
 # Decisions & Build Log
 
-*Updated 2026-09-05.*
+*Updated 2026-09-09.*
 
 **Decisions locked:**
 - **One Google house.** Gemini for lyrics + meta, Lyria for music, Nano Banana (Gemini image) for art. No OpenRouter, no Suno.
 - **CLI-first, human in the loop.** Not full autopilot. Creation is hands-on (vibe → lyrics → tweak *before* spending on audio). Cover art + video assembly get automated later; approval and upload stay manual by choice.
 - **Regenerate-with-notes** for tweaking (whole song each pass). Flat files, one folder per song: `songs/<slug>/lyrics.md` with frontmatter.
 - **Flash for lyrics** (cents), Lyria money spent where the ear can hear it (~$1/full song).
-- **Presets over free-text vibe** — six detailed fingerprints: elevation, maverick-city, bethel, hillsong, mary-mary, ron-kenoly. Specific BPM/instrumentation/vocals/imagery, because AIs reward specifics. Temperature knob for experimentation.
+- **Presets over free-text vibe** — five detailed fingerprints: elevation, maverick-city, bethel, hillsong, ron-kenoly. (mary-mary was dropped — two tracks didn't land.) Specific BPM/instrumentation/vocals/imagery, because AIs reward specifics. Temperature knob for the Gemini lyric flow only — Lyria's Interactions API has no temperature.
 - **Approval + upload = manual, on purpose.** Cover art + video assembly automated later.
 - **No preview step.** Lyria is non-deterministic (a fresh performance each run), so a 30s clip doesn't predict the full song — one render, always the full song.
-- **Lean structure: one Verse → Chorus → Bridge → Chorus → Chorus.** Lyria maxes ~3 min, so cramming 2 verses rushed everything; fewer sections let each one breathe. Baked into the craft prompt, every preset, and the Lyria directive (which also drops "key-change energy" — it leaked into auto lyrics — and asks for a resolved ending). Sections use EVEN line counts (4 or 6 verse/chorus, 2–4 bridge — odd counts like 5 tripped Lyria's timing); the chorus repeats verbatim; the final chorus ends on a vamp; call-and-response is written as echoed lyric lines, never role labels (Lyria sings labels literally).
+- **Lean structure: one Verse → Chorus → Bridge → Chorus → Chorus.** Lyria maxes ~3 min, so cramming 2 verses rushed everything; fewer sections let each one breathe. Baked into the craft prompt, every preset, and the Lyria directive (which also drops "key-change energy" — it leaked into auto lyrics — and asks for a resolved ending). Sections use EVEN line counts (4 or 6 verse/chorus, 2–4 bridge — odd counts like 5 tripped Lyria's timing); the chorus repeats verbatim; the final chorus ends on a vamp; call-and-response is written as echoed lyric lines, never role labels (Lyria sings labels literally). Keep every line short and singable — never a mouthful, especially verses.
+- **Auto-first.** `--auto` (Lyria writes AND sings its own lyrics from a theme) beats write-then-tune — the words fit Lyria's own melody, so no "mouthful" tension. The theme is passed as a LOOSE evocative spark, not a finished sentence, and the prompt tells Lyria to treat it as a spark not a script (fresh, concrete imagery — no paraphrasing the brief back).
+- **`--no-preset` is a real mode.** Hand Lyria just the theme, no style block, and let it pick the sound itself. Produced two of Vol. 2's strongest tracks. Auto-only (the human-lyric flow still needs a preset's brief).
+- **Title from the real hook.** In `--auto` the title is guessed before Lyria writes, so it drifts from the sung hook. `selah retitle <slug> "<hook>"` renames the folder + frontmatter, re-stamps the cover, and rebuilds the video — the folder, cover title, and sung words all line up.
+- **Richer cover art.** Covers now include figures & scenes (worshippers, praying, a sense of place), not just sky — while keeping a calm centre for the title and no rendered text. ALWAYS eyeball `cover-titled.jpg`: Nano Banana occasionally bakes in garbled text despite the "no text" rule; a plain re-roll clears it.
+- **Volumes.** Ship in tight volumes of ~5. Finished volumes are archived to `songs/volume-N/`; only in-progress songs live in `songs/` root (where the CLI operates).
 
 **Project:** Google Cloud `selah-507714` · repo `github.com:BrianMwangi21/selah`.
 
 **Built & working:**
-- Rich CLI: `new`, `list`, `show`, `render`, `presets`, `preset <key>`.
+- Rich CLI: `new` (with `--auto`, `--no-preset`, `--title`, `--temp`), `list`, `show`, `render` (with `--auto`), `presets`, `preset <key>`, `cover`, `title`, `retitle`, `video`.
 - Lyrics generation + the in-the-loop tweak flow — verified (elevation, bethel).
-- Six presets — all heard and tuned; distinct, faithful voices confirmed (call-and-response annotations locked in for maverick-city & ron-kenoly).
-- Lyrics craft layer — a "write for the arc" super-prompt (hook → verse/chorus contrast → pre-chorus lift → bridge-as-peak → final-chorus payoff) layered on top of each preset's voice.
+- Five presets — all heard and tuned; distinct, faithful voices confirmed (call-and-response annotations locked in for maverick-city & ron-kenoly).
+- Auto mode (`--auto`) + no-preset mode (`--no-preset`) — Lyria writes & sings its own lyrics; retries automatically on Lyria's flaky `prohibited_content`.
+- Lyrics craft layer — a "write for the arc" super-prompt layered on top of each preset's voice (human-lyric flow).
 - Lyria music stage — **verified**: full ~3-min song renders to a valid 192 kbps / 44.1 kHz stereo MP3 (`selah render`).
-- Cover art stage — **verified**: heavenly 2048×2048 art (Nano Banana) + Pillow title/SELAH overlay (`selah cover`, `selah title`).
+- Cover art stage — **verified**: heavenly 2048×2048 art with figures/scenes (Nano Banana) + Pillow title/SELAH overlay (`selah cover`, `selah title`).
 - Video stage — **verified**: titled cover + audio → 1920×1080 MP4 with a Ken Burns zoom, length pinned to the audio (`selah video`). Pure ffmpeg.
 
-**Next:**
-1. Write the twelve, then upload the winners by hand.
+**Shipped:**
+- **Vol. 1 (launched 2026-09-07):** channel live with branding (avatar + banner, Nano Banana), 5 tracks uploaded + disclosed, playlist "Selah Worship — Vol. 1". Tracks: Jesus Is The Ultimate Saviour, You Never Let Me Go, Lift Him Up, Come And Rest, Even The Rocks Cry Out.
+- **Vol. 2 — "The Declaration Era" (2026-09-09):** 5 tracks built + packaged (metadata in `youtube-metadata-vol2.md`). I Claim The Victory, I Am Yours, The Favor Is Mine, I Step Into Your Power, Whatever Is Mine Will Find Me.
 
-The full creation pipeline — lyrics → song → cover → video — is built and verified end to end.
+**Next:**
+1. Upload Vol. 2, then keep shipping volumes.
+
+The full creation pipeline — lyrics/theme → song → cover → video → metadata — is built and verified end to end.
 
 # Link
 
