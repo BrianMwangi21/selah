@@ -133,7 +133,7 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 - **Vol. 1 (launched 2026-09-07):** channel live with branding (avatar + banner, Nano Banana), 5 tracks uploaded + disclosed, playlist "Selah Worship — Vol. 1". Tracks: Jesus Is The Ultimate Saviour, You Never Let Me Go, Lift Him Up, Come And Rest, Even The Rocks Cry Out.
 - **Vol. 2 — "The Declaration Era" (2026-09-09):** 5 tracks built + packaged (metadata in `youtube-metadata-vol2.md`). I Claim The Victory, I Am Yours, The Favor Is Mine, I Step Into Your Power, Whatever Is Mine Will Find Me.
 
-- **Vol. 3 — affirmation lane (in progress, 2026-10-01):** 4 test tracks built with cover + video, one per new preset: I Speak It Is Done (affirmation-soul), The Stars Are Lining Up (cosmic), I Call It In (mantra), This Quiet Space (meditation).
+- **Vol. 3 — affirmation lane (in progress, 2026-10-01):** 5 tracks built with cover + video and packaged (metadata in `youtube-metadata-vol3.md`): I Speak It Is Done (affirmation-soul), More Than Enough (affirmation-soul, abundance), The Stars Are Lining Up (cosmic), I Call It In (mantra), This Quiet Space (meditation).
 
 **Next:**
 1. Upload the affirmation tracks and watch how they do against the gospel ones.

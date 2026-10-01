@@ -18,9 +18,10 @@ Subscribe and settle in.
 ## Upload and playlist order
 
 1. I Speak It Is Done — sets the intention
-2. The Stars Are Lining Up — the high-energy peak
-3. I Call It In — settles into the chant
-4. This Quiet Space — the calm close
+2. More Than Enough — the feel-good lift
+3. The Stars Are Lining Up — the high-energy peak
+4. I Call It In — settles into the chant
+5. This Quiet Space — the calm close
 
 ---
 
@@ -88,7 +89,65 @@ affirmations, affirmation song, manifestation music, manifestation, law of attra
 
 ---
 
-## 2. The Stars Are Lining Up
+## 2. More Than Enough
+
+**Title:**
+```
+More Than Enough | Selah | Abundance Affirmations
+```
+
+**Description:**
+```
+"I have more than enough, with plenty left to give." A feel-good abundance song for the easy way — no chasing, no scrambling, just good things flowing in.
+
+[Intro]
+It's already here.
+Watch it unfold.
+
+[Verse]
+I don't chase, I just receive.
+Like the ocean finds the shore.
+What is mine is meant to be,
+And it's always something more.
+
+[Chorus]
+The doors are opening before I even knock.
+A river flowing in, it's never gonna stop.
+I have more than enough, with plenty left to give.
+This is the beautiful, easy way I live.
+
+[Bridge]
+No rushing, no scrambling, no fear in my mind.
+Just peace in the present and goodness designed.
+
+[Chorus]
+The doors are opening before I even knock.
+A river flowing in, it's never gonna stop.
+I have more than enough, with plenty left to give.
+This is the beautiful, easy way I live.
+
+It's flowing to me now...
+More than enough to give.
+Doors open wide.
+This is the easy way.
+Smooth and clear, it is done.
+
+—
+🌙 Selah — a pause in the music.
+Music, lyrics & art crafted with AI, chosen by ear. Songs made to be played on repeat.
+
+Subscribe and settle in.
+#affirmations #manifestation #meditation #lawofattraction
+```
+
+**Tags:**
+```
+abundance affirmations, abundance, manifestation music, affirmation song, more than enough, law of attraction, money affirmations, prosperity, affirmations, i receive, manifestation, wealth affirmations, neo soul, selah, manifestation songs
+```
+
+---
+
+## 3. The Stars Are Lining Up
 
 **Title:**
 ```
@@ -150,7 +209,7 @@ manifestation music, manifestation, written in the stars, the stars are lining u
 
 ---
 
-## 3. I Call It In
+## 4. I Call It In
 
 **Title:**
 ```
@@ -204,7 +263,7 @@ mantra, manifestation mantra, manifestation music, i call it in, affirmations, i
 
 ---
 
-## 4. This Quiet Space
+## 5. This Quiet Space
 
 **Title:**
 ```
