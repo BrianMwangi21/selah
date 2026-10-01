@@ -40,7 +40,38 @@ ALBUM_STYLE = (
 )
 
 
+# The affirmation lane's look: night sky and cosmos instead of god-rays and
+# worshippers. Same two hard constraints — calm centre, no rendered text.
+COSMIC_STYLE = (
+    "Cinematic, richly detailed cosmic album cover art. A vast night sky: deep "
+    "indigo and violet space, glowing nebulae, constellations traced in fine "
+    "lines of light, a luminous moon or distant planets, drifting stardust. "
+    "Mystical and expansive; a sense of destiny, alignment and power — "
+    "manifestation made visible. Painterly cinematic digital art, rich jewel "
+    "tones with touches of gold, deep detail and texture. Compose so the figure "
+    "and busier detail sit toward the lower and outer areas, while the central "
+    "sky stays open and relatively calm, leaving space for a title. "
+    "No text, no words, no lettering, no logos, no watermark."
+)
+
+
 def _cover_prompt(song: Song) -> str:
+    try:
+        pre = get_preset(song.preset) if song.preset else None
+    except KeyError:
+        pre = None
+    if pre and pre.art == "cosmic":
+        # Each preset brings its own figure/scene so the covers don't all look
+        # like the same seated meditator.
+        scene = pre.art_scene or (
+            "A single small human figure silhouetted beneath the sky, dwarfed "
+            "by its scale."
+        )
+        return (
+            f"{COSMIC_STYLE} The scene: {scene} Evoke the feeling of "
+            f"'{song.theme}' through the sky itself — stars, light, colour and "
+            f"a sense of vastness."
+        )
     # Evoke the theme through a scene — figures, place, light and atmosphere.
     return (
         f"{ALBUM_STYLE} Evoke the feeling of '{song.theme}' through a worshipful "

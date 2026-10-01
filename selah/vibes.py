@@ -30,6 +30,12 @@ class Preset:
     lyric_devices: str
     structure: str
 
+    # --- lane (gospel by default; the affirmation presets override these) ---
+    opener: str = "A gospel worship song."   # first line of the Lyria prompt
+    dynamics: str = ""                       # replaces the default anthemic build
+    art: str = "gospel"                      # which cover style to paint
+    art_scene: str = ""                      # the figure/scene for cosmic covers
+
     def music_prompt(self) -> str:
         """Dense, comma-rich style descriptor for the music model."""
         return (
@@ -210,6 +216,184 @@ PRESETS: dict[str, Preset] = {
         lyric_imagery="lifting hands and lifting the name, gates and courts, the sacrifice of praise, dancing, Ancient of Days, banners",
         lyric_devices="leader/choir call-and-response (mark lines (Leader)/(Choir)/(Congregation)), congregational shout-backs, direct Scripture quotation (Psalm 100 gates/courts, Isaiah 61 garment of praise, Hebrews 13 'sacrifice of praise'), repeated praise declarations",
         structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
+    ),
+    # ------------------------------------------------------------------
+    # The affirmation lane: intention, manifestation, "I speak, it is done".
+    # Not worship songs — first-person affirmations built to be looped.
+    # ------------------------------------------------------------------
+    "affirmation-soul": Preset(
+        key="affirmation-soul",
+        name="Affirmation Soul",
+        feel="Warm neo-soul affirmations · 78-88 BPM head-nod",
+        genre="neo-soul and contemporary R&B affirmation song, warm and confident",
+        bpm="laid-back 78-88 BPM head-nod groove",
+        tonality="warm, sunny major-seventh and ninth chords, smooth and unhurried",
+        instrumentation=(
+            "Rhodes electric piano, round sub bass, soft crisp drums with finger "
+            "snaps, muted clean guitar licks, a light vinyl warmth"
+        ),
+        vocals=(
+            "smooth, confident female lead, close and conversational, with stacked "
+            "harmonies answering her on the hook"
+        ),
+        production="clean, warm, intimate modern R&B mix; the vocal sits right up front",
+        arrangement=(
+            "the voice comes in almost immediately, an easy verse, then a hook that "
+            "repeats like an affirmation, a stripped-back bridge, and the hook again"
+        ),
+        lyric_voice="first person, present tense, calm certainty; statements, never requests",
+        lyric_themes="the power of your own word, self-belief, intention, abundance, alignment, self-worth",
+        lyric_imagery="morning light, mirrors, open doors, seeds and harvest, a steady voice, things arriving on time",
+        lyric_devices="'I am' and 'I speak' statements, a short hook that works as a daily affirmation, echoed lines",
+        structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
+        opener=(
+            "An uplifting affirmation song about intention and self-belief — "
+            "spiritual but not religious, with no church or worship language."
+        ),
+        dynamics=(
+            " Begin singing within the first ten seconds — no long instrumental "
+            "intro. Keep the groove relaxed and steady: an easy verse, a warm, "
+            "confident hook, a stripped-back bridge. On the final chorus settle "
+            "into a vamp (repeat one short affirmation with layered harmonies), "
+            "then land a clear, resolved ending (do not cut off abruptly)."
+        ),
+        art="cosmic",
+        art_scene=(
+            "A single figure standing calm and upright, one hand lifted, with "
+            "warm golden light streaming from their open palm up into the stars."
+        ),
+    ),
+    "cosmic": Preset(
+        key="cosmic",
+        name="Cosmic",
+        feel="Electrifying synth-pop · 'written in the stars' · 120-126 BPM",
+        genre="euphoric, high-energy synth-pop and electro-pop, cosmic and electrifying",
+        bpm="driving, danceable 120-126 BPM with a four-on-the-floor pulse",
+        tonality="bright, soaring major with wide open chords and a big sense of lift",
+        instrumentation=(
+            "bright arpeggiated synths, a punchy driving synth bass, big "
+            "four-on-the-floor electronic drums with claps, wide shimmering pads, "
+            "sparkling bell tones, rising sweeps into each chorus"
+        ),
+        vocals=(
+            "powerful, clear lead vocal full of conviction, big stacked harmonies "
+            "and gang vocals that explode on the chorus"
+        ),
+        production="huge, glossy and wide; punchy low end, sparkling top, festival-sized energy",
+        arrangement=(
+            "the voice enters early over a pulsing bass, tension builds into a "
+            "chorus that explodes, a breakdown bridge that drops out and rebuilds, "
+            "then the chorus returns even bigger"
+        ),
+        lyric_voice="first person, wonder mixed with certainty; destiny as something already set in motion",
+        lyric_themes="destiny, alignment, timing, being guided, what is meant for you arriving, trust in the unseen",
+        lyric_imagery="stars and constellations, orbits, the moon and tides, maps of light, gravity, the night sky",
+        lyric_devices="a short celestial hook, repeated affirmations, simple declarative lines",
+        structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
+        opener=(
+            "An uplifting song about destiny, intention and manifestation — "
+            "spiritual but not religious, with no church or worship language."
+        ),
+        dynamics=(
+            " Begin singing within the first ten seconds — no long instrumental "
+            "intro. Keep the verse tight and pulsing, build tension into a chorus "
+            "that explodes with full energy, drop the bridge down and rebuild it. "
+            "On the final chorus break into a vamp (repeat one short phrase with "
+            "rising intensity), then land a clear, resolved ending (do not cut "
+            "off abruptly)."
+        ),
+        art="cosmic",
+        art_scene=(
+            "A single figure standing tall with arms thrown wide and head tilted "
+            "back, seen from behind, electric with energy, as bright stars snap "
+            "into dramatic lines and streaks of light overhead. Dynamic and "
+            "triumphant, not calm."
+        ),
+    ),
+    "mantra": Preset(
+        key="mantra",
+        name="Mantra",
+        feel="Slow hypnotic chant · one phrase that builds · 66-72 BPM",
+        genre="hypnotic mantra song, meditative chant with a gentle pulse",
+        bpm="slow, steady 66-72 BPM",
+        tonality="grounded and warm, built on a sustained drone with simple, circling chords",
+        instrumentation=(
+            "a low sustained drone, soft hand drum and shaker, warm harmonium-like "
+            "pad, gentle plucked strings, singing bowl accents"
+        ),
+        vocals=(
+            "a calm lead voice joined by a small group of voices chanting together, "
+            "more layers added each time the phrase returns"
+        ),
+        production="earthy, close and warm; hypnotic and unhurried, with natural room sound",
+        arrangement=(
+            "the chant begins almost immediately, a short spoken-sung verse, then "
+            "the chanted phrase returns again and again with more voices each time"
+        ),
+        lyric_voice="first person, present tense, simple and absolute; words meant to be repeated",
+        lyric_themes="the spoken word becoming real, intention, calm power, belief, being settled",
+        lyric_imagery="breath, the tongue, seeds, roots, water finding its way, a flame held steady",
+        lyric_devices="one short mantra repeated many times, very few words, call and echo between lead and group",
+        structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
+        opener=(
+            "A meditative mantra song about intention and the power of the spoken "
+            "word — spiritual but not religious, with no church or worship language."
+        ),
+        dynamics=(
+            " Begin singing within the first ten seconds — no long instrumental "
+            "intro. Keep it hypnotic and even; it grows only by adding voices and "
+            "layers, never by getting loud or fast. On the final chorus let the "
+            "mantra repeat with every voice joined, then land a clear, settled "
+            "ending (do not cut off abruptly)."
+        ),
+        art="cosmic",
+        art_scene=(
+            "A small circle of seated figures around a low, steady flame, seen "
+            "from a distance, with rings of light rippling outward from them "
+            "into the night sky."
+        ),
+    ),
+    "meditation": Preset(
+        key="meditation",
+        name="Meditation",
+        feel="Ambient, sparse and still · soft voice · 58-64 BPM",
+        genre="ambient meditation song, soft and spacious",
+        bpm="very slow 58-64 BPM with a barely-there pulse",
+        tonality="soft, open and consonant; slow-moving chords that never rush to resolve",
+        instrumentation=(
+            "warm ambient pads, soft felt piano, singing bowls, a distant airy "
+            "texture, no drums or only the faintest pulse"
+        ),
+        vocals=(
+            "a gentle, breathy, close-mic voice, almost a whisper, with a soft "
+            "halo of harmony; long pauses between lines"
+        ),
+        production="deep, spacious and quiet; long reverb tails, nothing sharp or sudden",
+        arrangement=(
+            "the voice enters early and softly, sparse lines with room to breathe, "
+            "a chorus that is a gentle return rather than a lift"
+        ),
+        lyric_voice="first person, present tense, slow and reassuring; very few words",
+        lyric_themes="stillness, intention, breath, trust, releasing, receiving, being exactly where you should be",
+        lyric_imagery="breath, still water, soft light, open hands, night sky, a slow tide",
+        lyric_devices="short affirmations with space around them, gentle repetition, simple words",
+        structure="One Verse, Chorus, Bridge, Chorus, Chorus — a single verse, then the chorus, a bridge, then the chorus twice to close. No second verse; keep it lean so a ~3-minute song breathes.",
+        opener=(
+            "A calm meditation song of affirmations and intention — spiritual but "
+            "not religious, with no church or worship language."
+        ),
+        dynamics=(
+            " Begin singing within the first fifteen seconds. Keep it calm and "
+            "even from start to finish — no big build, no drums crashing in; the "
+            "chorus is a gentle return, not a lift. On the final chorus let one "
+            "short phrase repeat softly, then fade to a settled, peaceful ending "
+            "(do not cut off abruptly)."
+        ),
+        art="cosmic",
+        art_scene=(
+            "A lone figure seated in stillness at the edge of perfectly still "
+            "water that mirrors the stars, soft and quiet, with a large gentle moon."
+        ),
     ),
 }
 

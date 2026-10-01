@@ -97,7 +97,7 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 
 # Decisions & Build Log
 
-*Updated 2026-09-09.*
+*Updated 2026-10-01.*
 
 **Decisions locked:**
 - **One Google house.** Gemini for lyrics + meta, Lyria for music, Nano Banana (Gemini image) for art. No OpenRouter, no Suno.
@@ -112,6 +112,8 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 - **`--no-preset` is a real mode.** Hand Lyria just the theme, no style block, and let it pick the sound itself. Produced two of Vol. 2's strongest tracks. Auto-only (the human-lyric flow still needs a preset's brief).
 - **Title from the real hook.** In `--auto` the title is guessed before Lyria writes, so it drifts from the sung hook. `selah retitle <slug> "<hook>"` renames the folder + frontmatter, re-stamps the cover, and rebuilds the video — the folder, cover title, and sung words all line up.
 - **Richer cover art.** Covers now include figures & scenes (worshippers, praying, a sense of place), not just sky — while keeping a calm centre for the title and no rendered text. ALWAYS eyeball `cover-titled.jpg`: Nano Banana occasionally bakes in garbled text despite the "no text" rule; a plain re-roll clears it.
+- **New lane: affirmation / manifestation (2026-10-01).** Moving beyond gospel to intention, manifestation and "I speak, it is done" songs — first-person affirmations built to be looped, spiritual but not religious. Same channel for now (testing before any rebrand). Four new presets: affirmation-soul (neo-soul), cosmic (high-energy synth-pop), mantra (slow chant), meditation (ambient). Each preset now carries its own prompt opener (no more hardcoded "gospel worship song"), its own dynamics (meditation and mantra don't build to an anthem), and its own cover scene. Vocals come in within the first ~10 seconds — analytics showed viewers leaving at 20–30s.
+- **Cosmic covers for the new lane.** Night sky, constellations, moon and planets instead of god-rays and worshippers. The figure/scene is set per preset so covers don't all come out as the same seated meditator.
 - **Volumes.** Ship in tight volumes of ~5. Finished volumes are archived to `songs/volume-N/`; only in-progress songs live in `songs/` root (where the CLI operates).
 
 **Project:** Google Cloud `selah-507714` · repo `github.com:BrianMwangi21/selah`.
@@ -119,7 +121,8 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 **Built & working:**
 - Rich CLI: `new` (with `--auto`, `--no-preset`, `--title`, `--temp`), `list`, `show`, `render` (with `--auto`), `presets`, `preset <key>`, `cover`, `title`, `retitle`, `video`.
 - Lyrics generation + the in-the-loop tweak flow — verified (elevation, bethel).
-- Five presets — all heard and tuned; distinct, faithful voices confirmed (call-and-response annotations locked in for maverick-city & ron-kenoly).
+- Five gospel presets — all heard and tuned; distinct, faithful voices confirmed (call-and-response annotations locked in for maverick-city & ron-kenoly).
+- Four affirmation presets (affirmation-soul, cosmic, mantra, meditation) — each heard and approved on a first test track.
 - Auto mode (`--auto`) + no-preset mode (`--no-preset`) — Lyria writes & sings its own lyrics; retries automatically on Lyria's flaky `prohibited_content`.
 - Lyrics craft layer — a "write for the arc" super-prompt layered on top of each preset's voice (human-lyric flow).
 - Lyria music stage — **verified**: full ~3-min song renders to a valid 192 kbps / 44.1 kHz stereo MP3 (`selah render`).
@@ -130,8 +133,10 @@ Mum listens to gospel. If she would replay track 3 of 12, the ear was right.
 - **Vol. 1 (launched 2026-09-07):** channel live with branding (avatar + banner, Nano Banana), 5 tracks uploaded + disclosed, playlist "Selah Worship — Vol. 1". Tracks: Jesus Is The Ultimate Saviour, You Never Let Me Go, Lift Him Up, Come And Rest, Even The Rocks Cry Out.
 - **Vol. 2 — "The Declaration Era" (2026-09-09):** 5 tracks built + packaged (metadata in `youtube-metadata-vol2.md`). I Claim The Victory, I Am Yours, The Favor Is Mine, I Step Into Your Power, Whatever Is Mine Will Find Me.
 
+- **Vol. 3 — affirmation lane (in progress, 2026-10-01):** 4 test tracks built with cover + video, one per new preset: I Speak It Is Done (affirmation-soul), The Stars Are Lining Up (cosmic), I Call It In (mantra), This Quiet Space (meditation).
+
 **Next:**
-1. Upload Vol. 2, then keep shipping volumes.
+1. Upload the affirmation tracks and watch how they do against the gospel ones.
 
 The full creation pipeline — lyrics/theme → song → cover → video → metadata — is built and verified end to end.
 

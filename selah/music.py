@@ -19,32 +19,55 @@ from selah import config
 from selah.storage import Song
 from selah.vibes import get_preset
 
-# Length + dynamic-arc directive so the build has room to breathe.
-_FULL_DIRECTIVE = (
+# The directive is three parts: a lean structure so the song has room to
+# breathe, a dynamic arc (presets can swap in their own), and singable lines.
+_STRUCTURE = (
     " Create a complete song about 3 minutes long with a lean structure so it can "
     "breathe: one verse, then the chorus, then a bridge, then the chorus twice to "
     "close (no second verse). Give each section an EVEN number of lines — 4 or 6 "
     "for the verse and chorus, 2 or 4 for the bridge, never 5 or an odd count. "
-    "Repeat the chorus verbatim every time. Build the dynamics — a restrained "
+    "Repeat the chorus verbatim every time."
+)
+_DYNAMICS = (
+    " Build the dynamics — a restrained "
     "verse, a big anthemic chorus, a bridge that grows — and on the final chorus "
     "break into a vamp (repeat one short phrase with rising intensity), then land "
-    "a clear, resolved ending (do not cut off abruptly). Keep every line short and "
+    "a clear, resolved ending (do not cut off abruptly)."
+)
+_SINGABLE = (
+    " Keep every line short and "
     "easy to sing — few words per line, a comfortable, even syllable count; never "
     "cram a line so full it becomes a mouthful, especially in the verses."
 )
+_GOSPEL_OPENER = "A gospel worship song."
+
+
+def _preset(song: Song):
+    try:
+        return get_preset(song.preset) if song.preset else None
+    except KeyError:
+        return None
 
 
 def _style(song: Song) -> str:
-    try:
-        style = get_preset(song.preset).music_prompt() if song.preset else ""
-    except KeyError:
-        style = ""
-    return style or "Genre: gospel worship, full arrangement with vocals."
+    pre = _preset(song)
+    return pre.music_prompt() if pre else "Genre: gospel worship, full arrangement with vocals."
+
+
+def _opener(song: Song) -> str:
+    pre = _preset(song)
+    return pre.opener if pre else _GOSPEL_OPENER
+
+
+def _directive(song: Song) -> str:
+    pre = _preset(song)
+    dynamics = pre.dynamics if pre and pre.dynamics else _DYNAMICS
+    return f"{_STRUCTURE}{dynamics}{_SINGABLE}"
 
 
 def _music_prompt(song: Song) -> str:
     return (
-        f"A gospel worship song. {_style(song)}{_FULL_DIRECTIVE} "
+        f"{_opener(song)} {_style(song)}{_directive(song)} "
         f"Theme: {song.theme}. Sing the following lyrics with the section "
         f"structure exactly as tagged.\n\n{song.lyrics}"
     )
@@ -63,9 +86,9 @@ def _auto_prompt(song: Song) -> str:
     # from the theme alone (a proven mode — some of the strongest tracks).
     style = f"{_style(song)} " if song.preset else ""
     return (
-        f"A gospel worship song. {style}Write your own lyrics (do not "
+        f"{_opener(song)} {style}Write your own lyrics (do not "
         f"wait for lyrics to be provided): a song inspired by {song.theme}."
-        f"{_CREATIVE_DIRECTIVE}{_FULL_DIRECTIVE}"
+        f"{_CREATIVE_DIRECTIVE}{_directive(song)}"
     )
 
 
